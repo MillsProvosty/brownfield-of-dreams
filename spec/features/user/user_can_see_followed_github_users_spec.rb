@@ -2,9 +2,7 @@ require 'rails_helper'
 
 describe "As a user on my dashboard page" do
   it "I see a list of github users I'm following" do
-    # VCR.use_cassette('user_followings') do
-    WebMock.allow_net_connect!
-    VCR.turn_off!
+    VCR.use_cassette('user_followings') do
       user = create(:user)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
@@ -18,6 +16,6 @@ describe "As a user on my dashboard page" do
           expect(page).to have_link("Mycobee")
         end
       end
-    # end
+    end
   end
 end
