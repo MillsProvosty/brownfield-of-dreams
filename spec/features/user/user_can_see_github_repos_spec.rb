@@ -10,7 +10,8 @@ describe "As a user on my dashboard page" do
       visit '/dashboard'
 
       within("#github") do
-        expect(page).to have_content("Github Repos")
+        expect(page).to have_content("Github")
+        expect(page).to have_content("Repos")
         expect(page.all(".repo_list").count).to eq(5)
         within(first(".repo_list")) do
           expect(page).to have_link("brownfield-of-dreams")
