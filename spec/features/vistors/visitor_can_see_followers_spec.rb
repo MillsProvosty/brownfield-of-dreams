@@ -14,7 +14,7 @@ describe "Gihub visitors" do
       expect(page).to have_content("Followers")
       expect(page.all(".follower_list").count).to eq(5)
       within(first(".follower_list")) do
-        expect(page).to have_link("Kyle Cornellison")
+        expect(page).to have_link("kylecornelissen")
       end
     end
   end

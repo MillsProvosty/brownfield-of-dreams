@@ -9,7 +9,7 @@ class UserShowFacade
   def followers
     follower_hash = GithubApiService.new.user_followers
     follower_hash.map do |follower_data|
-      User.new
-    end 
+      GithubUser.new(follower_data)
+    end
   end
 end
