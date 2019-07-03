@@ -11,11 +11,22 @@
     <h1>Bookmarked Segments</h1>
   </section>
   <section id="github">
-    <h2>Github Repos</h2>
-    <ul>
-    <% facade.repos.each do |repo| %>
-      <li class="repo_list"><%= link_to repo.name, repo.url %></li>
-    <% end %>
-    </ul>
+    <h2>Github</h2>
+    <section id="github_repos">
+      <h3>Repos</h3>
+      <ul>
+      <% facade.repos.each do |repo| %>
+        <li class="repo_list"><%= link_to repo.name, repo.url %></li>
+      <% end %>
+      </ul>
+    </section>
+    <section id="github_followers">
+      <h3>Followers</h3>
+      <ul>
+      <% facade.followers.each do |follower| %>
+        <li class="follower_list"><%= link_to follower.handle, follower.url %></li>
+      <% end %>
+      </ul>
+    </section>
   </section>
 </section>
