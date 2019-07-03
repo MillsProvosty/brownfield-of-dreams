@@ -15,7 +15,7 @@ describe 'visitor can create an account', :js do
 
       expect(current_path).to eq(login_path)
 
-      click_on 'Sign up now.'
+      click_on w'Sign up now.'
 
       expect(current_path).to eq(new_user_path)
 
@@ -34,5 +34,5 @@ describe 'visitor can create an account', :js do
       expect(page).to have_content(last_name)
       expect(page).to_not have_content('Sign In')
     end
-  end 
+  end
 end

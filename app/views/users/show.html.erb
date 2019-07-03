@@ -17,5 +17,15 @@
       <li class="repo_list"><%= link_to repo.name, repo.url %></li>
     <% end %>
     </ul>
+
+    <div>
+      <h2>Followers  </h2>
+      <ul>
+      <% facade.followers.each do |follower| %>
+        <li class="follower_list"><%= link_to follower.login, follower.url %></li>
+      <% end %>
+      <%= followers.count %>
+      </ul>
+    </div>
   </section>
 </section>
