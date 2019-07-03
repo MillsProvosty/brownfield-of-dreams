@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'User' do
   it 'user can sign in' do
-    VCR.use_cassette("user_sign_in") do
+    VCR.use_cassette("user_sign_in", :record => :new_episodes) do
       user = create(:user)
 
       visit '/'
@@ -24,7 +24,7 @@ describe 'User' do
   end
 
   it 'can log out', :js do
-    VCR.use_cassette("user_log_out") do
+    VCR.use_cassette("user_log_out", :record => :new_episodes) do
       user = create(:user)
 
       visit login_path
