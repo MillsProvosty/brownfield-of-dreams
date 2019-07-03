@@ -14,4 +14,14 @@ describe GithubApiService do
       expect(repos.count).to eq(30)
     end
   end
+
+  it '#user_followers' do
+    VCR.use_cassette("github_api_user_followers") do
+      followers = subject.user_followers
+      expect(followers).to be_an(Array)
+      expect(followers.first).to have_key(:login)
+      expect(followers.first).to have_key(:url)
+      expect(followers.count).to eq(5)
+    end
+  end
 end
