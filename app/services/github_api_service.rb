@@ -7,6 +7,10 @@ class GithubApiService
     fetch_data('/user/followers')
   end
 
+  def followed_users
+    fetch_data('/user/following')
+  end
+
   private
 
   def conn

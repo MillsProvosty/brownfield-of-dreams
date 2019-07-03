@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'visitor can create an account', :js do
   it 'visits the home page' do
-    VCR.use_cassette("visitor_home_page") do
+    VCR.use_cassette("visitor_home_page", :record => :new_episodes) do
       email = 'jimbob@aol.com'
       first_name = 'Jim'
       last_name = 'Bob'

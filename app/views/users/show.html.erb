@@ -20,7 +20,6 @@
       <% end %>
       </ul>
     </section>
-
     <section id="github_followers">
       <h3>Followers</h3>
       <ul>
@@ -29,7 +28,13 @@
       <% end %>
       </ul>
     </section>
+    <section id="github_followed_users">
+      <h3>Followed Users</h3>
+      <ul>
+      <% facade.followed_users.each do |followed_user| %>
+        <li class="followed_user_list"><%= link_to followed_user.handle, followed_user.url %></li>
+      <% end %>
+      </ul>
+    </section>
   </section>
-
-
 </section>

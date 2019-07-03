@@ -12,4 +12,11 @@ class UserShowFacade
       GithubUser.new(follower_data)
     end
   end
+
+  def followed_users
+    followed_users_hash = GithubApiService.new.followed_users
+    followed_users_hash.map do |followed_user_data|
+      GithubUser.new(followed_user_data)
+    end
+  end
 end
