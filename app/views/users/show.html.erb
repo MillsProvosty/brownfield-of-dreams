@@ -10,4 +10,11 @@
   <section>
     <h1>Bookmarked Segments</h1>
   </section>
+
+<h2> Github Repos</h2>
+<ul class="github">
+<% facade.user_github_repos.each do |repo| %>
+  <li class="user_repo_list"><%= link_to repo.name, repo.url %></li>
+<% end %>
+</ul>
 </section>

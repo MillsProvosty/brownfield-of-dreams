@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   def show
+    render locals: {
+      facade:
+      UserGithubReposFacade.new
+    }
   end
 
   def new
@@ -16,6 +20,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
 
   private
 
