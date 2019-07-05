@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
+  helper_method :current_github_user?
   helper_method :find_bookmark
   helper_method :list_tags
   helper_method :tutorial_name
@@ -8,6 +9,10 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def current_github_user?
+    session[:github_uid] ? true : false
   end
 
   def find_bookmark(id)
