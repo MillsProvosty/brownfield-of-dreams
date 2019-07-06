@@ -1,7 +1,6 @@
-class GithubSessionsController < ApplicationController
+class GithubAuthController < ApplicationController
   def create
     user = current_user.update_github_login_details(auth_hash)
-    session[:github_uid] = user.github_uid
     redirect_to '/dashboard'
   end
 

@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_github_user?
-    session[:github_uid] ? true : false
+    current_user.github_token != nil
   end
 
   def find_bookmark(id)
