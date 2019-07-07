@@ -26,7 +26,7 @@ class User < ApplicationRecord
       if friendships.find_by(friended_user: friend)
         :already_exists
       else
-        friendships.create!(friended_user: friend)
+        friendships.create(friended_user: friend)
         :success
       end
     else
