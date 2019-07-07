@@ -2,6 +2,9 @@
   <h1> <%= current_user.first_name %>'s Dashboard </h1>
 
   <%= button_to 'Log Out', logout_path, method: 'delete', class: "btn btn-primary mb1 bg-teal" %>
+  <% unless current_github_user? %>
+    <%= link_to "Connect to Github", "/auth/github", class: "btn btn-primary mb1 bg-teal" %>
+  <% end %>
   <h3>Account Details</h3>
   <ul>
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
@@ -10,31 +13,33 @@
   <section>
     <h1>Bookmarked Segments</h1>
   </section>
-  <section id="github">
-    <h2>Github</h2>
-    <section id="github_repos">
-      <h3>Repos</h3>
-      <ul>
-      <% facade.repos.each do |repo| %>
-        <li class="repo_list"><%= link_to repo.name, repo.url %></li>
-      <% end %>
-      </ul>
+  <% if current_github_user? %>
+    <section id="github">
+      <h2>Github</h2>
+      <section id="github_repos">
+        <h3>Repos</h3>
+        <ul>
+        <% facade.repos.each do |repo| %>
+          <li class="repo_list"><%= link_to repo.name, repo.url %></li>
+        <% end %>
+        </ul>
+      </section>
+      <section id="github_followers">
+        <h3>Followers</h3>
+        <ul>
+        <% facade.followers.each do |follower| %>
+          <li class="follower_list"><%= link_to follower.handle, follower.url %></li>
+        <% end %>
+        </ul>
+      </section>
+      <section id="github_followed_users">
+        <h3>Followed Users</h3>
+        <ul>
+        <% facade.followed_users.each do |followed_user| %>
+          <li class="followed_user_list"><%= link_to followed_user.handle, followed_user.url %></li>
+        <% end %>
+        </ul>
+      </section>
     </section>
-    <section id="github_followers">
-      <h3>Followers</h3>
-      <ul>
-      <% facade.followers.each do |follower| %>
-        <li class="follower_list"><%= link_to follower.handle, follower.url %></li>
-      <% end %>
-      </ul>
-    </section>
-    <section id="github_followed_users">
-      <h3>Followed Users</h3>
-      <ul>
-      <% facade.followed_users.each do |followed_user| %>
-        <li class="followed_user_list"><%= link_to followed_user.handle, followed_user.url %></li>
-      <% end %>
-      </ul>
-    </section>
-  </section>
+  <% end %>
 </section>
