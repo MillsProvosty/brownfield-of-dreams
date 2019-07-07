@@ -23,4 +23,9 @@ class UserShowFacade
       GithubUser.new(followed_user_data)
     end
   end
+
+  def friended_users
+    user = User.find(@user_id)
+    user.friended_users
+  end
 end
