@@ -3,7 +3,8 @@ class GithubUser
               :url
   def initialize(attributes)
     @handle = attributes[:login]
-    @url = attributes[:url]
+    # TO DO: fix on master!
+    @url = attributes[:html_url]
   end
 
   def our_user?
