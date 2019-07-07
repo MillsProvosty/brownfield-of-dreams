@@ -5,4 +5,8 @@ class GithubUser
     @handle = attributes[:login]
     @url = attributes[:url]
   end
-end 
+
+  def could_be_a_friend?
+    User.find_by(github_handle: @handle) != nil
+  end
+end

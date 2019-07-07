@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post '/friendships/new/:github_handle', to: "friendships#create", as: :new_friendship
+
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
