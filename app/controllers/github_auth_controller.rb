@@ -1,4 +1,4 @@
-class GithubAuthController
+class GithubAuthController < ApplicationController
   def create
     current_user.update_github_auth(auth_hash)
     redirect_to '/dashboard'

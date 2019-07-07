@@ -7,4 +7,10 @@ class User < ApplicationRecord
   validates_presence_of :first_name
   enum role: [:default, :admin]
   has_secure_password
+
+  def update_github_auth(auth_hash)
+    self.github_uid = auth_hash["uid"]
+    self.github_token = auth_hash["credentials"]["token"]
+    self.save!
+  end
 end
