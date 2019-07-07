@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_many :user_videos
   has_many :videos, through: :user_videos
+  # TO DO: add relationship tests
+  has_many :friendships
+  has_many :friended_users, through: :friendships
 
   validates :email, uniqueness: true, presence: true
   validates_presence_of :password, on: :create
@@ -17,10 +20,10 @@ class User < ApplicationRecord
 
   def add_friend(github_handle)
     if friend = User.find_by(github_handle: github_handle)
-      if Friendship.find_by(friended_id: friend.id, friender_id: id)
+      if friendships.find_by(friended_user: friend)
         :already_exists
       else
-        self.friendships.create!(friend)
+        friendships.create!(friended_user: friend)
         :success
       end
     else

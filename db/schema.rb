@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_07_195240) do
+ActiveRecord::Schema.define(version: 2019_07_07_210614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "friended_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friended_user_id"], name: "index_friendships_on_friended_user_id"
+    t.index ["user_id", "friended_user_id"], name: "index_friendships_on_user_id_and_friended_user_id", unique: true
+    t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
@@ -83,6 +93,8 @@ ActiveRecord::Schema.define(version: 2019_07_07_195240) do
     t.index ["tutorial_id"], name: "index_videos_on_tutorial_id"
   end
 
+  add_foreign_key "friendships", "users"
+  add_foreign_key "friendships", "users", column: "friended_user_id"
   add_foreign_key "user_videos", "users"
   add_foreign_key "user_videos", "videos"
 end
