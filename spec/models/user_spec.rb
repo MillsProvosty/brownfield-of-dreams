@@ -27,10 +27,14 @@ RSpec.describe User, type: :model do
     it "#update_github_auth" do
       user = create(:user)
       uid = "42"
+      nickname = "github_acct_name"
       token = "12345"
       auth_hash = {
         "provider" => 'github',
         "uid" => uid,
+        "info" => {
+          "nickname" => nickname
+        },
         "credentials" => {
           "token" => token
         }
@@ -39,6 +43,7 @@ RSpec.describe User, type: :model do
       user.update_github_auth(auth_hash)
 
       expect(user.github_uid).to eq(uid)
+      expect(user.github_handle).to eq(nickname)
       expect(user.github_token).to eq(token)
     end
   end
