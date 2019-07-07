@@ -46,5 +46,9 @@ RSpec.describe User, type: :model do
       expect(user.github_handle).to eq(nickname)
       expect(user.github_token).to eq(token)
     end
+
+    xit "#add_friend" do
+      # TO DO 
+    end
   end
 end

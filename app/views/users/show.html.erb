@@ -28,7 +28,12 @@
         <h3>Followers</h3>
         <ul>
         <% facade.followers.each do |follower| %>
-          <li class="follower_list"><%= link_to follower.handle, follower.url %></li>
+          <li class="follower_list">
+            <%= link_to follower.handle, follower.url %>
+            <% if follower.our_user? %>
+              <%= button_to "Add as Friend", new_friendship_path(follower.handle) %>
+            <% end %>
+          </li>
         <% end %>
         </ul>
       </section>

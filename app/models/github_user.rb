@@ -5,4 +5,8 @@ class GithubUser
     @handle = attributes[:login]
     @url = attributes[:url]
   end
+
+  def our_user?
+    User.where(github_handle: @handle).any?
+  end
 end 

@@ -14,4 +14,17 @@ class User < ApplicationRecord
     self.github_token = auth_hash["credentials"]["token"]
     self.save
   end
+
+  def add_friend(github_handle)
+    if friend = User.find_by(github_handle: github_handle)
+      if Friendship.find_by(friended_id: friend.id, friender_id: id)
+        :already_exists
+      else
+        self.friendships.create!(friend)
+        :success
+      end
+    else
+      :not_in_system
+    end
+  end
 end
