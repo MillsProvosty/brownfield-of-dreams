@@ -3,6 +3,6 @@ class GithubUser
               :url
   def initialize(attributes)
     @handle = attributes[:login]
-    @url = attributes[:url]
+    @url = attributes[:html_url]
   end
 end 
