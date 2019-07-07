@@ -22,4 +22,24 @@ RSpec.describe User, type: :model do
       expect(admin.admin?).to be_truthy
     end
   end
+
+  describe 'instance methods' do
+    it "#update_github_auth" do
+      user = create(:user)
+      uid = "42"
+      token = "12345"
+      auth_hash = {
+        "provider" => 'github',
+        "uid" => uid,
+        "credentials" => {
+          "token" => token
+        }
+      }
+
+      user.update_github_auth(auth_hash)
+
+      expect(user.github_uid).to eq(uid)
+      expect(user.github_token).to eq(token)
+    end
+  end
 end
