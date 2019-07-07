@@ -9,8 +9,6 @@ describe "As a user on my dashboard page" do
 
       visit '/dashboard'
 
-      save_and_open_page
-
       within("#github_followed_users") do
         expect(page).to have_content("Followed Users")
         expect(page.all(".followed_user_list").count).to eq(6)
