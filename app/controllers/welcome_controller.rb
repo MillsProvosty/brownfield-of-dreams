@@ -11,9 +11,9 @@ class WelcomeController < ApplicationController
 
   def filter_tutorials
     if current_user
-      Tutorials.all
+      Tutorial.all
     else !current_user
-      Tutorials.public_tutorials
+      Tutorial.public_tutorials
     end
   end
 end
