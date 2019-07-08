@@ -4,9 +4,7 @@ require 'rails_helper'
 
 describe 'visitor cannot see tutorials', :js do
   it 'until they have logged in, and they are classroom content' do
-    # VCR.use_cassette('visitor_no_tutorials', record: :new_episodes) do
-      WebMock.allow_net_connect!
-      VCR.turn_off!
+    VCR.use_cassette('visitor_no_tutorials', record: :new_episodes) do
 
       tutorial1 = create(:tutorial, classroom: true)
       tutorial2 = create(:tutorial, classroom: false)
@@ -25,13 +23,11 @@ describe 'visitor cannot see tutorials', :js do
       expect(page).to_not have_css('.tutorial-description')
       expect(page).to_not have_content(tutorial1.title)
       expect(page).to_not have_content(tutorial1.description)
-    # end
+     end
   end
 
   it 'can only see tutorials once logged in and the content is marked classroom. ' do
-    # VCR.use_cassette('visitor_see_tutorials', record: :new_episodes) do
-      WebMock.allow_net_connect!
-      VCR.turn_off!
+     VCR.use_cassette('visitor_see_tutorials', record: :new_episodes) do
 
       tutorial1 = create(:tutorial, classroom: true)
       tutorial2 = create(:tutorial, classroom: false)
@@ -69,6 +65,6 @@ describe 'visitor cannot see tutorials', :js do
 
         expect(page).to_not have_content(tutorial2.title)
         expect(page).to_not have_content(tutorial2.description)
-    # end
+    end
   end
 end
