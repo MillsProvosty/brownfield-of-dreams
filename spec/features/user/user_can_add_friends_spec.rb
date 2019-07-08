@@ -16,6 +16,18 @@ describe "As a user on my dashboard page" do
       visit '/dashboard'
       save_and_open_page
 
+      within(first(".follower_list")) do
+        click_button "Add as Friend"
+      end
+
+      expect(page).to have_content("My Friends")
+
+      within(first(".friend_list")) do 
+        expect(page).to have_link("kylecornelissen")
+      end
+
+
+
 
 
     #end
