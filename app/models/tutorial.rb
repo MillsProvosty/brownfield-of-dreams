@@ -5,5 +5,4 @@ class Tutorial < ApplicationRecord
   acts_as_taggable_on :tags, :tag_list
   accepts_nested_attributes_for :videos
   scope :viewable, ->{where(classroom: true)}
-
 end

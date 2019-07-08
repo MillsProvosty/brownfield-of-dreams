@@ -6,12 +6,11 @@
 <section class="tutorials col md-col-8">
     <% @tutorials.each do |tutorial| %>
     <div class="tutorial">
-        <img class="thumbnail col md-col-3" src= <%="#{tutorial.viewable.thumbnail}" %> >
+        <img class="thumbnail col md-col-3" src= <%="#{tutorial.thumbnail}" %> >
           <div class="tutorial-description col md-col-9">
-            <h4 class="tutorial-title-home"><%= link_to tutorial.viewable.title, tutorial_path(tutorial.viewable), class: "title-link" %> </h4>
-            <p class="description"><%= tutorial.viewabable.description %></p> <br>
+            <h4 class="tutorial-title-home"><%= link_to tutorial.title, tutorial_path(tutorial), class: "title-link" %> </h4>
+            <p class="description"><%= tutorial.description %></p> <br>
           </div>
-        <% end %>
       </div> <br>
     <% end %>
   <% end %>

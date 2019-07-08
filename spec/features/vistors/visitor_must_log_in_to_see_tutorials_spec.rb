@@ -67,26 +67,8 @@ describe 'visitor cannot see tutorials', :js do
         expect(page).to have_content(tutorial1.description)
       end
 
-      within(page.all('.tutorials')[1]) do
-        expect(page).to have_css('.tutorial')
-        expect(page).to have_css('.tutorial-description')
-        expect(page).to have_content(tutorial1.title)
-        expect(page).to have_content(tutorial1.description)
-      end
-
-      within(page.all('.tutorials')[2]) do
-        expect(page).to_not have_css('.tutorial')
-        expect(page).to_not have_css('.tutorial-description')
         expect(page).to_not have_content(tutorial2.title)
         expect(page).to_not have_content(tutorial2.description)
-      end
-
-      within(page.all('.tutorials')[3]) do
-        expect(page).to_not have_css('.tutorial')
-        expect(page).to_not have_css('.tutorial-description')
-        expect(page).to_not have_content(tutorial2.title)
-        expect(page).to_not have_content(tutorial2.description)
-      end
     # end
   end
 end
