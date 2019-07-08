@@ -2,7 +2,7 @@ class UserShowFacade
   def initialize(user_id)
     @user_id = user_id
   end
-  
+
   def repos
     repos_hash = GithubApiService.new(@user_id).user_repos
     repos_hash.map do |repo_data|
@@ -22,5 +22,10 @@ class UserShowFacade
     followed_users_hash.map do |followed_user_data|
       GithubUser.new(followed_user_data)
     end
+  end
+
+  def friends
+    current_user = User.find(@user_id)
+    current_user.friends
   end
 end

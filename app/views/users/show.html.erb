@@ -45,6 +45,16 @@
         <% end %>
         </ul>
       </section>
+      <section id="github_friends">
+        <h3>My Friends</h3>
+        <ul>
+        <% facade.friends.each do |friend| %>
+          <li class="friend_list">
+            <%= link_to friend.github_handle, friend.github_url %>
+          </li>
+        <% end %>
+        </ul>
+      </section>
     </section>
   <% end %>
 </section>

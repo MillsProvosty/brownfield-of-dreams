@@ -14,15 +14,18 @@ describe "As a user on my dashboard page" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
 
       visit '/dashboard'
-      save_and_open_page
 
       within(first(".follower_list")) do
         click_button "Add as Friend"
       end
 
+      within(page.all(".follower_list")[1]) do
+        expect(page).to_not have_button("Add as Friend")
+      end
+
       expect(page).to have_content("My Friends")
 
-      within(first(".friend_list")) do 
+      within(first(".friend_list")) do
         expect(page).to have_link("kylecornelissen")
       end
 

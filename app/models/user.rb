@@ -17,4 +17,28 @@ class User < ApplicationRecord
     self.github_handle = auth_hash["info"]["nickname"]
     self.save
   end
+
+  def add_friend(github_handle)
+    if potential_friend = user_with_github_handle(github_handle)
+      if already_friends?(potential_friend)
+        :already_friends
+      else
+        friendships.create(friend: potential_friend)
+        :success
+      end
+    else
+      :user_not_in_system
+    end
+  end
+
+  private
+
+  def user_with_github_handle(github_handle)
+    User.find_by(github_handle: github_handle)
+  end
+
+  def already_friends?(potential_friend)
+    friendship = friendships.find_by(friend: potential_friend)
+    friendship != nil
+  end
 end
