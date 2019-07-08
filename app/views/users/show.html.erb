@@ -41,7 +41,12 @@
         <h3>Followed Users</h3>
         <ul>
         <% facade.followed_users.each do |followed_user| %>
-          <li class="followed_user_list"><%= link_to followed_user.handle, followed_user.url %></li>
+          <li class="followed_user_list">
+            <%= link_to followed_user.handle, followed_user.url %>
+            <% if followed_user.can_be_friend_of?(current_user) %>
+              <%= button_to "Add as Friend", new_friendship_path(followed_user.handle) %>
+            <% end %>
+          </li>
         <% end %>
         </ul>
       </section>
