@@ -1,9 +1,9 @@
 <div class="home-page-title">
+  <% if current_user %>
   <h1>Video Tutorials</h1>
   <hr>
 </div>
 <section class="tutorials col md-col-8">
-  <% if current_user %>
     <% @tutorials.each do |tutorial| %>
       <div class="tutorial">
         <img class="thumbnail col md-col-3" src= <%="#{tutorial.thumbnail}" %> >
