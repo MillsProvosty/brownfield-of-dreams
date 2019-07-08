@@ -27,6 +27,7 @@ gem 'omniauth-github'
 gem 'will_paginate'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'omniauth-census', git: "https://github.com/turingschool-projects/omniauth-census"
+gem 'hashdiff', ['>= 1.0.0.beta1', '< 2.0.0']
 
 
 group :development, :test do

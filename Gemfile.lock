@@ -140,7 +140,7 @@ GEM
       multi_json (~> 1.11)
       os (>= 0.9, < 2.0)
       signet (~> 0.7)
-    hashdiff (0.4.0)
+    hashdiff (1.0.0.beta1)
     hashie (3.6.0)
     httpclient (2.8.3)
     i18n (1.6.0)
@@ -363,6 +363,7 @@ DEPENDENCIES
   figaro
   foundation-rails
   google-api-client
+  hashdiff (>= 1.0.0.beta1, < 2.0.0)
   jbuilder (~> 2.5)
   jquery
   launchy
