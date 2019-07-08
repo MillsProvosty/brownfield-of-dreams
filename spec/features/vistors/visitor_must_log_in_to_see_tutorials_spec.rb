@@ -8,13 +8,13 @@ describe 'visitor cannot see tutorials', :js do
       WebMock.allow_net_connect!
       VCR.turn_off!
 
-      tutorial1 = create(:tutorial)
-      tutorial2 = create(:tutorial)
+      tutorial1 = create(:tutorial, classroom: true)
+      tutorial2 = create(:tutorial, classroom: false)
 
-      video1 = create(:video, tutorial_id: tutorial1.id, classroom: true)
-      video2 = create(:video, tutorial_id: tutorial1.id, classroom: false)
-      video3 = create(:video, tutorial_id: tutorial2.id, classroom: true)
-      video4 = create(:video, tutorial_id: tutorial2.id, classroom: false)
+      video1 = create(:video, tutorial_id: tutorial1.id)
+      video2 = create(:video, tutorial_id: tutorial1.id)
+      video3 = create(:video, tutorial_id: tutorial2.id)
+      video4 = create(:video, tutorial_id: tutorial2.id)
 
       visit root_path
 
@@ -33,13 +33,13 @@ describe 'visitor cannot see tutorials', :js do
       WebMock.allow_net_connect!
       VCR.turn_off!
 
-      tutorial1 = create(:tutorial)
-      tutorial2 = create(:tutorial)
+      tutorial1 = create(:tutorial, classroom: true)
+      tutorial2 = create(:tutorial, classroom: false)
 
-      video1 = create(:video, tutorial_id: tutorial1.id, classroom: true)
-      video2 = create(:video, tutorial_id: tutorial1.id, classroom: false)
-      video3 = create(:video, tutorial_id: tutorial2.id, classroom: true)
-      video4 = create(:video, tutorial_id: tutorial2.id, classroom: false)
+      video1 = create(:video, tutorial_id: tutorial1.id)
+      video2 = create(:video, tutorial_id: tutorial1.id)
+      video3 = create(:video, tutorial_id: tutorial2.id)
+      video4 = create(:video, tutorial_id: tutorial2.id)
 
       user = create(:user)
 
@@ -58,7 +58,7 @@ describe 'visitor cannot see tutorials', :js do
 
       visit root_path
 
-      expect(page).to have_css('.tutorial', count: 2)
+      expect(page).to have_css('.tutorial', count: 1)
 
       within(first('.tutorials')) do
         expect(page).to have_css('.tutorial')
@@ -68,17 +68,17 @@ describe 'visitor cannot see tutorials', :js do
       end
 
       within(page.all('.tutorials')[1]) do
-        expect(page).to_not have_css('.tutorial')
-        expect(page).to_not have_css('.tutorial-description')
-        expect(page).to_not have_content(tutorial1.title)
-        expect(page).to_not have_content(tutorial1.description)
-      end
-
-      within(page.all('.tutorials')[2]) do
         expect(page).to have_css('.tutorial')
         expect(page).to have_css('.tutorial-description')
         expect(page).to have_content(tutorial1.title)
         expect(page).to have_content(tutorial1.description)
+      end
+
+      within(page.all('.tutorials')[2]) do
+        expect(page).to_not have_css('.tutorial')
+        expect(page).to_not have_css('.tutorial-description')
+        expect(page).to_not have_content(tutorial1.title)
+        expect(page).to_not have_content(tutorial1.description)
       end
 
       within(page.all('.tutorials')[3]) do
