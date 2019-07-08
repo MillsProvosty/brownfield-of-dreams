@@ -61,6 +61,12 @@ def mock_oauth
     uid: ENV["GITHUB_UID"],
     credentials: {
       token: ENV["GITHUB_API_KEY"]
+    },
+    info: {
+      nickname: 'MillsProvosty',
+      urls: {
+        GitHub: "https://github.com/MillsProvosty"
+      }
     }
   })
 end
