@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe GithubUser, type: :model do
-  describe "basic functions" do
+  describe 'basic functions' do
     before(:each) do
-      @github_user_data = {login: "chakeresa", html_url: "github profile URL"}
+      @github_user_data = { login: 'chakeresa', html_url: 'github profile URL' }
       @github_user = GithubUser.new(@github_user_data)
     end
 
@@ -18,24 +20,24 @@ RSpec.describe GithubUser, type: :model do
   end
 
   describe 'can_be_friend_of(current_user)' do
-    it "is true when user exists and not yet friends" do
-      handle = "kylecornelissen"
-      github_user = GithubUser.new({login: handle, html_url: "github profile URL"})
+    it 'is true when user exists and not yet friends' do
+      handle = 'kylecornelissen'
+      github_user = GithubUser.new(login: handle, html_url: 'github profile URL')
       corresponding_user = create(:user_with_github, github_handle: handle)
       current_user = create(:user_with_github)
       expect(github_user.can_be_friend_of?(current_user)).to eq(true)
     end
 
-    it "is false when user does not exist" do
-      handle = "kylecornelissen"
-      github_user = GithubUser.new({login: handle, html_url: "github profile URL"})
+    it 'is false when user does not exist' do
+      handle = 'kylecornelissen'
+      github_user = GithubUser.new(login: handle, html_url: 'github profile URL')
       current_user = create(:user_with_github)
       expect(github_user.can_be_friend_of?(current_user)).to eq(false)
     end
 
-    it "is false when user is already a friend" do
-      handle = "kylecornelissen"
-      github_user = GithubUser.new({login: handle, html_url: "github profile URL"})
+    it 'is false when user is already a friend' do
+      handle = 'kylecornelissen'
+      github_user = GithubUser.new(login: handle, html_url: 'github profile URL')
       corresponding_user = create(:user_with_github, github_handle: handle)
       current_user = create(:user_with_github)
       current_user.friendships.create(friend: corresponding_user)
