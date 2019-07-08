@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   helper_method :current_user, :current_github_user?
   helper_method :find_bookmark
