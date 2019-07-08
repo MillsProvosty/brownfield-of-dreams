@@ -28,6 +28,13 @@ RSpec.describe User, type: :model do
       user = create(:user)
       uid = "42"
       token = "12345"
+      info = {
+        "nickname" => 'kyle',
+        "urls" => {
+          "GitHub" => 'https://github.com/kyle'
+        }
+
+      }
       auth_hash = {
         "provider" => 'github',
         "uid" => uid,
