@@ -7,6 +7,11 @@ RSpec.describe User, type: :model do
     it {should validate_presence_of(:password)}
   end
 
+  describe "relationships" do
+    it {should have_many(:friendships)}
+    it {should have_many(:friends).through(:friendships)}
+  end
+
   describe 'roles' do
     it 'can be created as default user' do
       user = User.create(email: 'user@email.com', password: 'password', first_name:'Jim', role: 0)
@@ -28,18 +33,20 @@ RSpec.describe User, type: :model do
       user = create(:user)
       uid = "42"
       token = "12345"
-      info = {
-        "nickname" => 'kyle',
-        "urls" => {
-          "GitHub" => 'https://github.com/kyle'
-        }
+      nickname = "kyle"
+      url = 'https://github.com/kyle'
 
-      }
       auth_hash = {
         "provider" => 'github',
         "uid" => uid,
         "credentials" => {
           "token" => token
+        },
+        "info" => {
+          "nickname" => nickname,
+          "urls" => {
+            "GitHub" => url
+          }
         }
       }
 
@@ -47,6 +54,8 @@ RSpec.describe User, type: :model do
 
       expect(user.github_uid).to eq(uid)
       expect(user.github_token).to eq(token)
+      expect(user.github_url).to eq(url)
+      expect(user.github_handle).to eq(nickname)
     end
   end
 end
