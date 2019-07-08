@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
     if current_user
       Tutorials.all
     else !current_user
-      Tutorials.private_tutorials
+      Tutorials.public_tutorials
     end
   end
 end
