@@ -1,0 +1,126 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://chromedriver.storage.googleapis.com/LATEST_RELEASE_75.0.3770
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - chromedriver.storage.googleapis.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Guploader-Uploadid:
+      - AEnB2Uo4NFr9nL-MzyN6-0v__PPqgAINZcacEjar0gL9KJNXBhO1la8V2FcNOPZYDm1UD9uX-y_QNHEB3QPFrxbVAofA_KS1lw
+      Expires:
+      - Mon, 08 Jul 2019 03:12:25 GMT
+      Date:
+      - Mon, 08 Jul 2019 02:12:25 GMT
+      Last-Modified:
+      - Thu, 13 Jun 2019 21:21:19 GMT
+      Etag:
+      - '"f6526b177e51743e04eab2b42debcb62"'
+      X-Goog-Generation:
+      - '1560460879513580'
+      X-Goog-Metageneration:
+      - '1'
+      X-Goog-Stored-Content-Encoding:
+      - identity
+      X-Goog-Stored-Content-Length:
+      - '12'
+      Content-Type:
+      - text/plain
+      Content-Language:
+      - en
+      X-Goog-Hash:
+      - crc32c=FBQBjg==
+      - md5=9lJrF35RdD4E6rK0LevLYg==
+      X-Goog-Storage-Class:
+      - STANDARD
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '12'
+      Server:
+      - UploadServer
+      Cache-Control:
+      - public, max-age=3600
+      Age:
+      - '2142'
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="46,43,39"
+    body:
+      encoding: UTF-8
+      string: 75.0.3770.90
+    http_version: 
+  recorded_at: Mon, 08 Jul 2019 02:47:59 GMT
+- request:
+    method: get
+    uri: https://www.googleapis.com/youtube/v3/videos?id=J7ikFUlkP_k&key=<YOUTUBE_API_KEY>&part=snippet,contentDetails,statistics
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 08 Jul 2019 02:48:12 GMT
+      Expires:
+      - Mon, 08 Jul 2019 02:48:12 GMT
+      Cache-Control:
+      - private, max-age=0
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="46,43,39"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+         "error": {
+          "errors": [
+           {
+            "domain": "usageLimits",
+            "reason": "keyInvalid",
+            "message": "Bad Request"
+           }
+          ],
+          "code": 400,
+          "message": "Bad Request"
+         }
+        }
+    http_version: 
+  recorded_at: Mon, 08 Jul 2019 02:48:03 GMT
+recorded_with: VCR 5.0.0

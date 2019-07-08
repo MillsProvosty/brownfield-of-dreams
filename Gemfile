@@ -45,7 +45,8 @@ group :development, :test do
   gem 'simplecov'
   gem 'vcr'
   gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  # gem 'chromedriver-helper'
+  gem 'webdrivers', '~> 3.0'
 end
 
 group :development do

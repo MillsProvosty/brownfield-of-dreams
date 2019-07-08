@@ -20,6 +20,7 @@ VCR.configure do |config|
   config.filter_sensitive_data("<GITHUB_CLIENT_SECRET>") { ENV['GITHUB_CLIENT_SECRET'] }
 end
 
+Webdrivers.cache_time=60
 
 ActiveRecord::Migration.maintain_test_schema!
 
