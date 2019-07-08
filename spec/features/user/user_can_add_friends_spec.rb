@@ -29,6 +29,10 @@ describe "As a user on my dashboard page" do
         expect(page).to have_link("kylecornelissen")
       end
 
+      within(first(".follower_list")) do
+        expect(page).to_not have_button("Add as Friend")
+      end
+
       #followed
       within(first(".followed_user_list")) do
         click_button "Add as Friend"
@@ -39,6 +43,10 @@ describe "As a user on my dashboard page" do
       end
 
       within(page.all(".followed_user_list")[1]) do
+        expect(page).to_not have_button("Add as Friend")
+      end
+
+      within(first(".followed_user_list")) do
         expect(page).to_not have_button("Add as Friend")
       end
 
