@@ -1,0 +1,11 @@
+inherit_from: ../.rubocop.yml
+
+Documentation:
+  Enabled: false
+AllCops:
+  Excludes:
+    - db
+    - config/environments
+    - config/puma.rb
+    - config/initializers
+    - bin

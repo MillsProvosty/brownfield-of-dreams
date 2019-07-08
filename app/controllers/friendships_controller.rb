@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class FriendshipsController < ApplicationController
   def create
-    github_handle = params["github_handle"]
+    github_handle = params['github_handle']
 
     case current_user.add_friend(github_handle)
     when :success

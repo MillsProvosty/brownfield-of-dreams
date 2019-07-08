@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe GithubApiService do
@@ -11,7 +13,7 @@ describe GithubApiService do
   end
 
   it '#user_repos' do
-    VCR.use_cassette("github_api_user_repos", :record => :new_episodes) do
+    VCR.use_cassette('github_api_user_repos', record: :new_episodes) do
       repos = @service.user_repos
       expect(repos).to be_an(Array)
       expect(repos.first).to have_key(:name)
@@ -21,7 +23,7 @@ describe GithubApiService do
   end
 
   it '#user_followers' do
-    VCR.use_cassette("github_api_user_followers", :record => :new_episodes) do
+    VCR.use_cassette('github_api_user_followers', record: :new_episodes) do
       followers = @service.user_followers
       expect(followers).to be_an(Array)
       expect(followers.first).to have_key(:login)
@@ -31,7 +33,7 @@ describe GithubApiService do
   end
 
   it '#followed_users' do
-    VCR.use_cassette("github_api_followed_users", :record => :new_episodes) do
+    VCR.use_cassette('github_api_followed_users', record: :new_episodes) do
       users_followed = @service.followed_users
       expect(users_followed).to be_an(Array)
       expect(users_followed.first).to have_key(:login)

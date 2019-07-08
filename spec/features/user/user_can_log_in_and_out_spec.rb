@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'User' do
   it 'user can sign in' do
-    VCR.use_cassette("user_sign_in", :record => :new_episodes) do
+    VCR.use_cassette('user_sign_in', record: :new_episodes) do
       user = create(:user)
 
       visit '/'
 
-      click_on "Sign In"
+      click_on 'Sign In'
 
       expect(current_path).to eq(login_path)
 
@@ -24,7 +26,7 @@ describe 'User' do
   end
 
   it 'can log out', :js do
-    VCR.use_cassette("user_log_out", :record => :new_episodes) do
+    VCR.use_cassette('user_log_out', record: :new_episodes) do
       user = create(:user)
 
       visit login_path
@@ -44,12 +46,12 @@ describe 'User' do
       expect(page).to_not have_content(user.first_name)
       expect(page).to have_content('SIGN IN')
     end
-  end 
+  end
 
   it 'is shown an error when incorrect info is entered' do
     user = create(:user)
-    fake_email = "email@email.com"
-    fake_password = "123"
+    fake_email = 'email@email.com'
+    fake_password = '123'
 
     visit login_path
 
@@ -58,6 +60,6 @@ describe 'User' do
 
     click_on 'Log In'
 
-    expect(page).to have_content("Looks like your email or password is invalid")
+    expect(page).to have_content('Looks like your email or password is invalid')
   end
 end

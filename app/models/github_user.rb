@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GithubUser
   attr_reader :handle,
               :url
@@ -9,7 +11,6 @@ class GithubUser
   def can_be_friend_of?(current_user)
     user_exists? && !already_friends?(current_user)
   end
-
 
   private
 
