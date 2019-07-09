@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 class GithubApiService
-  def initialize(user_id)
-    @user_id = user_id
+  def initialize(github_token)
+    @github_token = github_token
   end
 
-  def user_repos
-    fetch_data('/user/repos')
+  def user_repos(limit)
+    fetch_data("/user/repos?page=1&per_page=#{limit}")
   end
 
   def user_followers
@@ -28,7 +28,7 @@ class GithubApiService
   def fetch_data(uri_path)
     response = conn.get do |req|
       req.url uri_path
-      req.params['access_token'] = User.find(@user_id).github_token
+      req.params['access_token'] = @github_token
     end
     JSON.parse(response.body, symbolize_names: true)
   end

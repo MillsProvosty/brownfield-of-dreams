@@ -3,7 +3,7 @@
 class UsersController < ApplicationController
   def show
     render locals: {
-      facade: UserShowFacade.new(current_user.id)
+      facade: UserShowFacade.new(current_user)
     }
   end
 
