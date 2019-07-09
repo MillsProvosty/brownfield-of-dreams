@@ -5,9 +5,8 @@ class GithubApiService
     @github_token = github_token
   end
 
-  def user_repos
-    # TO DO: add optional argument to limit number of repos
-    fetch_data('/user/repos')
+  def user_repos(limit)
+    fetch_data("/user/repos?page=1&per_page=#{limit}")
   end
 
   def user_followers

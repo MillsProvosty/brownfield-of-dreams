@@ -6,12 +6,10 @@ class UserShowFacade
   end
 
   def repos
-    # TO DO: abstract out GithubApiService.new into private method
-    repos_hash = github_service.user_repos
+    repos_hash = github_service.user_repos(5)
     repos_hash.map do |repo_data|
       Repo.new(repo_data)
-    end.first(5)
-    # TO DO: ^ get rid of first(5) by using optional args on user_repos method
+    end
   end
 
   def followers

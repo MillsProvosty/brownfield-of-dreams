@@ -14,11 +14,12 @@ describe GithubApiService do
 
   it '#user_repos' do
     VCR.use_cassette('github_api_user_repos', record: :new_episodes) do
-      repos = @service.user_repos
+      limit = 12
+      repos = @service.user_repos(limit)
       expect(repos).to be_an(Array)
       expect(repos.first).to have_key(:name)
       expect(repos.first).to have_key(:url)
-      expect(repos.count).to eq(30)
+      expect(repos.count).to eq(limit)
     end
   end
 
