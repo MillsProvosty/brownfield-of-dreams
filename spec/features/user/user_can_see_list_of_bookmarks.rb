@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'As a user on my dashboard page' do
   it 'I see a list of my github repos' do
-    # VCR.use_cassette('see_bookmarks', record: :new_episodes) do
+    # VCR.use_cassette('see_ordered_bookmarks', record: :new_episodes) do
       WebMock.allow_net_connect!
       VCR.turn_off!
 
@@ -20,25 +20,24 @@ describe 'As a user on my dashboard page' do
       visit '/dashboard'
 
       expect(page).to have_content("Bookmarked Segments")
-  
-      within(page.first('.tutorial')) do
+
+      within(page.first('.bookmarks-btn')) do
         expect(page).to have_content(video1)
         expect(page).to_not have_content(video2)
         expect(page).to_not have_content(video3)
       end
 
-      within(page.all('.tutorial')[1]) do
+      within(page.all('.bookmarks-btn')[1]) do
         expect(page).to have_content(video2)
         expect(page).to_not have_content(video1)
         expect(page).to_not have_content(video3)
       end
 
-      within(page.all('.tutorial')[2]) do
+      within(page.all('.bookmarks-btn')[2]) do
         expect(page).to have_content(video3)
         expect(page).to_not have_content(video2)
         expect(page).to_not have_content(video1)
       end
-
     #end
   end
 end
