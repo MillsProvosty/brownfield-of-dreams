@@ -12,6 +12,7 @@ RSpec.describe Tutorial, type: :model do
       tutorial1 = create(:tutorial)
       tutorial2 = create(:tutorial)
       tutorial3 = create(:tutorial)
+      tutorial4 = create(:tutorial)
 
       video11 = create(:video, tutorial_id: tutorial1.id)
       video21 = create(:video, tutorial_id: tutorial2.id)
@@ -26,8 +27,10 @@ RSpec.describe Tutorial, type: :model do
       other_user_video31 = create(:user_video, user: other_user, video: video31)
 
       result = Tutorial.bookmarked_videos_for_user(user.id)
-      expect(result).to eq([video11, video21, video33, video32])
-      expect(result.first.tutorial).to eq(tutorial1)
+      expect(result).to eq([tutorial1, tutorial2, tutorial3])
+      expect(result.first.videos).to eq([video11])
+      expect(result.second.videos).to eq([video21])
+      expect(result.third.videos).to eq([video33, video32])
     end
   end
 end
