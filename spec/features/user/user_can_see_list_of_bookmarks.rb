@@ -2,9 +2,7 @@ require 'rails_helper'
 
 describe 'As a user on my dashboard page' do
   it 'I see a list of my bookmarked videos' do
-    # VCR.use_cassette('see_ordered_bookmarks', record: :new_episodes) do
-      WebMock.allow_net_connect!
-      VCR.turn_off!
+     VCR.use_cassette('see_ordered_bookmarks', record: :new_episodes) do
 
       user = create(:user)
 
@@ -25,7 +23,7 @@ describe 'As a user on my dashboard page' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit '/dashboard'
-      
+
       within(page.first('.tutorial_list')) do
         expect(page).to have_content(tutorial1.title)
         expect(page).to have_content(video11.title)
@@ -49,6 +47,6 @@ describe 'As a user on my dashboard page' do
         expect(page).to_not have_content(video11.title)
         expect(page).to_not have_content(video21.title)
       end
-    #end
+    end
   end
 end
