@@ -4,8 +4,8 @@ require 'rails_helper'
 
 describe GithubApiService do
   before(:each) do
-    user = create(:user_with_github)
-    @service = GithubApiService.new(user.id)
+    github_token = ENV["GITHUB_API_KEY"]
+    @service = GithubApiService.new(github_token)
   end
 
   it 'exists' do
