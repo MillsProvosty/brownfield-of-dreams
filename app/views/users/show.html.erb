@@ -10,14 +10,15 @@
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
     <li> <%= current_user.email%> </li>
   </ul>
-  <section class='.bookmarked_segments'>
     <h1>Bookmarked Segments</h1>
-    <% facade.bookmarked_segments.each do |v| %>
-      <%= v.title%>
-        <% segment.tutorial.videos.each do |video|%>
-        <%= segment.tutorial.video.title %>
-      <% end %>
+    <section class="bookmarked_videos">
+    <ul>
+    <% facade.bookmarked_videos.each do |v| %>
+    <% binding.pry %>
+   <li>Tutorial Title:  <%= v.tutorial.title %></li>
+      <li>Video Title:  <%= v.title %></li>
     <% end %>
+    </ul>
   </section>
   <% if current_github_user? %>
     <section id="github">
