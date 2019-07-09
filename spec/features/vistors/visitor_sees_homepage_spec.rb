@@ -8,8 +8,8 @@ describe 'Visitor' do
       tutorial1 = create(:tutorial)
       tutorial2 = create(:tutorial)
 
-      create(:video, 2, tutorial: tutorial1)
-      create(:video, 2, tutorial: tutorial2)
+      create_list(:video, 2, tutorial: tutorial1)
+      create_list(:video, 2, tutorial: tutorial2)
 
       visit root_path
 

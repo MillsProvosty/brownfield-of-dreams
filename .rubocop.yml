@@ -10,3 +10,19 @@ AllCops:
 
 Style/Documentation:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Exclude:
+    - 'app/controllers/sessions_controller.rb'
+
+Style/IfUnlessModifier:
+  Exclude:
+    - 'app/controllers/admin/tutorials_controller.rb'
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/setup'
+    - 'bin/update'
