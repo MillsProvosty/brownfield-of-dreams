@@ -6,7 +6,7 @@ class Tutorial < ApplicationRecord
   scope :public_tutorials, ->{ where(classroom: false) }
 
 
-  def self.bookmarked_videos_for_user(user_id)
+  def self.bookmarked_tutorials_for_user(user_id)
     includes(videos: [:user_videos])
       .where(user_videos: {user_id: user_id})
       .order(:tutorial_id, :position)

@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Tutorial, type: :model do
 
   describe "class methods" do
-    it ".bookmarked_videos_for_user" do
+    it ".bookmarked_tutorials_for_user" do
       user = create(:user)
       other_user = create(:user)
 
@@ -26,7 +26,7 @@ RSpec.describe Tutorial, type: :model do
       user_video33 = create(:user_video, user: user, video: video33)
       other_user_video31 = create(:user_video, user: other_user, video: video31)
 
-      result = Tutorial.bookmarked_videos_for_user(user.id)
+      result = Tutorial.bookmarked_tutorials_for_user(user.id)
       expect(result).to eq([tutorial1, tutorial2, tutorial3])
       expect(result.first.videos).to eq([video11])
       expect(result.second.videos).to eq([video21])

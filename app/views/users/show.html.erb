@@ -13,10 +13,13 @@
     <h1>Bookmarked Segments</h1>
     <section class="bookmarked_videos">
     <ul>
-    <% facade.bookmarked_videos.each do |v| %>
-    <% binding.pry %>
-   <li>Tutorial Title:  <%= v.tutorial.title %></li>
-      <li>Video Title:  <%= v.title %></li>
+    <% facade.bookmarked_tutorials.each do |t| %>
+     <li>Tutorial Title:  <%= t.title %></li>
+      <ul>
+        <% t.videos.each do |v| %>
+          <li>Video Title:  <%= v.title %></li>
+        <% end %>
+      </ul>
     <% end %>
     </ul>
   </section>

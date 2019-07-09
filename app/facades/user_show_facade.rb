@@ -31,7 +31,7 @@ class UserShowFacade
     current_user.friends
   end
 
-  def bookmarked_videos
-    Tutorial.bookmarked_videos_for_user(@user_id)
+  def bookmarked_tutorials
+    Tutorial.bookmarked_tutorials_for_user(@user_id)
   end
 end
