@@ -30,4 +30,8 @@ class UserShowFacade
     current_user = User.find(@user_id)
     current_user.friends
   end
+
+  def bookmarked_tutorials
+    Tutorial.bookmarked_tutorials_for_user(@user_id)
+  end
 end
