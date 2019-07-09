@@ -15,10 +15,10 @@
     <ul>
     <% facade.bookmarked_tutorials.each do |tutorial| %>
       <div class="tutorial_list">
-       <li>Tutorial:  <%= tutorial.title %></li>
+       <li>Tutorial:  <%= link_to tutorial.title, tutorial_path(tutorial) %></li>
         <ul>
           <% tutorial.videos.each do |video| %>
-            <li><%= video.title %></li>
+            <li><%= link_to video.title, "/tutorials/#{tutorial.id}?video_id=#{video.id}" %></li>
           <% end %>
         </ul>
       </div>

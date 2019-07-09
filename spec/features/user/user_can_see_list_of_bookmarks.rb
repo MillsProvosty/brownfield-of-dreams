@@ -25,27 +25,27 @@ describe 'As a user on my dashboard page' do
       visit '/dashboard'
 
       within(page.first('.tutorial_list')) do
-        expect(page).to have_content(tutorial1.title)
-        expect(page).to have_content(video11.title)
-        expect(page).to_not have_content(video21.title)
-        expect(page).to_not have_content(video31.title)
-        expect(page).to_not have_content(video32.title)
+        expect(page).to have_link(tutorial1.title)
+        expect(page).to have_link(video11.title)
+        expect(page).to_not have_link(video21.title)
+        expect(page).to_not have_link(video31.title)
+        expect(page).to_not have_link(video32.title)
       end
 
       within(page.all('.tutorial_list')[1]) do
-        expect(page).to have_content(tutorial2.title)
-        expect(page).to have_content(video21.title)
-        expect(page).to_not have_content(video11.title)
-        expect(page).to_not have_content(video31.title)
-        expect(page).to_not have_content(video32.title)
+        expect(page).to have_link(tutorial2.title)
+        expect(page).to have_link(video21.title)
+        expect(page).to_not have_link(video11.title)
+        expect(page).to_not have_link(video31.title)
+        expect(page).to_not have_link(video32.title)
       end
 
       within(page.all('.tutorial_list')[2]) do
-        expect(page).to have_content(tutorial3.title)
-        expect(page).to have_content(video32.title)
-        expect(page).to have_content(video31.title)
-        expect(page).to_not have_content(video11.title)
-        expect(page).to_not have_content(video21.title)
+        expect(page).to have_link(tutorial3.title)
+        expect(page).to have_link(video32.title)
+        expect(page).to have_link(video31.title)
+        expect(page).to_not have_link(video11.title)
+        expect(page).to_not have_link(video21.title)
       end
     end
   end
