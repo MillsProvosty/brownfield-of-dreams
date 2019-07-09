@@ -32,6 +32,6 @@ class UserShowFacade
   end
 
   def bookmarked_videos
-    Video.bookmarked_videos_for_user(@user_id)
+    Tutorial.bookmarked_videos_for_user(@user_id)
   end
 end
