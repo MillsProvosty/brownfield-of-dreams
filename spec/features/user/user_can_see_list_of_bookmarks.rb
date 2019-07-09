@@ -30,7 +30,7 @@ describe 'As a user on my dashboard page' do
       # And they should be organized by which tutorial they are a part of
       # And the videos should be ordered by their position
 save_and_open_page
-      within(page.first('.bookmarked_videos')) do
+      within(page.first('.tutorial_list')) do
         expect(page).to have_content(tutorial1.title)
         expect(page).to have_content(video11.title)
         expect(page).to_not have_content(video21.title)
@@ -38,7 +38,7 @@ save_and_open_page
         expect(page).to_not have_content(video32.title)
       end
 
-      within(page.all('.bookmarked_videos')[1]) do
+      within(page.all('.tutorial_list')[1]) do
         expect(page).to have_content(tutorial2.title)
         expect(page).to have_content(video21.title)
         expect(page).to_not have_content(video11.title)
@@ -46,7 +46,7 @@ save_and_open_page
         expect(page).to_not have_content(video32.title)
       end
 
-      within(page.all('.bookmarked_videos')[2]) do
+      within(page.all('.tutorial_list')[2]) do
         expect(page).to have_content(tutorial3.title)
         expect(page).to have_content(video32.title)
         expect(page).to_not have_content(video11.title)
@@ -54,7 +54,7 @@ save_and_open_page
         expect(page).to_not have_content(video31.title)
       end
 
-      within(page.all('.bookmarked_videos')[3]) do
+      within(page.all('.tutorial_list')[3]) do
         expect(page).to have_content(tutorial3.title)
         expect(page).to have_content(video31.title)
         expect(page).to_not have_content(video11.title)

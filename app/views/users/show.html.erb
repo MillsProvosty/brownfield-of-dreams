@@ -10,16 +10,18 @@
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
     <li> <%= current_user.email%> </li>
   </ul>
+  <section id="bookmarked_videos">
     <h1>Bookmarked Segments</h1>
-    <section class="bookmarked_videos">
     <ul>
     <% facade.bookmarked_tutorials.each do |t| %>
-     <li>Tutorial Title:  <%= t.title %></li>
-      <ul>
-        <% t.videos.each do |v| %>
-          <li>Video Title:  <%= v.title %></li>
-        <% end %>
-      </ul>
+      <div class="tutorial_list">
+       <li>Tutorial Title:  <%= t.title %></li>
+        <ul>
+          <% t.videos.each do |v| %>
+            <li>Video Title:  <%= v.title %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
     </ul>
   </section>
