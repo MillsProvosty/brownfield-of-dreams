@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "As a logged in user" do
+RSpec.describe 'As a logged in user' do
   it 'I can see all tutorials.' do
-     VCR.use_cassette('user_sees_all_tutorials', record: :new_episodes) do
-
+    VCR.use_cassette('user_sees_all_tutorials', record: :new_episodes) do
       tutorial1 = create(:tutorial, classroom: false)
       tutorial2 = create(:tutorial, classroom: true)
 

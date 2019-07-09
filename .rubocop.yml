@@ -1,0 +1,12 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - db/**
+    - db/migrate/**
+    - node_modules/node-sass/src/libsass/contrib/**
+    - config/initializers/**
+    - config/**
+
+Style/Documentation:
+  Enabled: false

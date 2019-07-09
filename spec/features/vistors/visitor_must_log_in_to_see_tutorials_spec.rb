@@ -5,7 +5,6 @@ require 'rails_helper'
 describe 'visitor can only see public tutorials', :js do
   it 'unless they are logged in' do
     VCR.use_cassette('visitor_no_clasroom_tutorials', record: :new_episodes) do
-
       tutorial1 = create(:tutorial, classroom: false)
       tutorial2 = create(:tutorial, classroom: true)
 
