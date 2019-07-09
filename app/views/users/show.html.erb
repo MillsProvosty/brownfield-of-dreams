@@ -12,7 +12,7 @@
   </ul>
   <section class='.bookmarked_segments'>
     <h1>Bookmarked Segments</h1>
-    <% current_user.videos.each do |v| %>
+    <% facade.bookmarked_segments.each do |v| %>
       <%= v.title%>
         <% segment.tutorial.videos.each do |video|%>
         <%= segment.tutorial.video.title %>
