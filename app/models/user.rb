@@ -21,7 +21,8 @@ class User < ApplicationRecord
   end
 
   def add_friend(github_handle)
-    if potential_friend = user_with_github_handle(github_handle)
+    potential_friend = user_with_github_handle(github_handle)
+    if potential_friend
       if already_friends?(potential_friend)
         :already_friends
       else

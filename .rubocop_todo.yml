@@ -6,33 +6,7 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# # Offense count: 1
-# # Configuration parameters: AllowSafeAssignment.
-# Lint/AssignmentInCondition:
-#   Exclude:
-#     - 'app/models/user.rb'
 
-# # Offense count: 1
-# Lint/ShadowingOuterLocalVariable:
-#   Exclude:
-#     - 'app/services/tutorial_sequencer.rb'
-
-# # Offense count: 29
-# Lint/UselessAssignment:
-#   Exclude:
-#     - 'spec/features/admin/admin_can_add_tags_to_tutorials_spec.rb'
-#     - 'spec/features/user/user_can_bookmark_a_video_spec.rb'
-#     - 'spec/features/user/user_can_log_in_and_out_spec.rb'
-#     - 'spec/features/user/user_can_see_all_tutorials_spec.rb'
-#     - 'spec/features/vistors/visitor_can_register_spec.rb'
-#     - 'spec/features/vistors/visitor_can_see_list_of_videos_for_a_tutorial_spec.rb'
-#     - 'spec/features/vistors/visitor_is_asked_to_log_in_when_bookmarking_spec.rb'
-#     - 'spec/features/vistors/visitor_must_log_in_to_see_tutorials_spec.rb'
-#     - 'spec/features/vistors/visitor_sees_homepage_spec.rb'
-#     - 'spec/models/github_user_spec.rb'
-#     - 'spec/presenters/tutorial_presenter_spec.rb'
-#     - 'spec/requests/api/v1/tutorials_request_spec.rb'
-#     - 'spec/requests/api/v1/videos_request_spec.rb'
 
 # # Offense count: 1
 # Metrics/AbcSize:

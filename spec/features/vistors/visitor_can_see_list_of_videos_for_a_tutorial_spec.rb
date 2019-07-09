@@ -12,6 +12,7 @@ describe 'visitor visits tutorial show page' do
     within('#video-list') do
       expect(page.all('.show-link').count).to eq(2)
       expect(first('.show-link')).to have_content(video_1.title)
+      expect(page.all('.show-link')[1]).to have_content(video_2.title)
     end
   end
 
