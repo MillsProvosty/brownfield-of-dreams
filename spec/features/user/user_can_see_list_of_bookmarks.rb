@@ -23,13 +23,9 @@ describe 'As a user on my dashboard page' do
       user_video32 = create(:user_video, user: user, video: video32)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      # As a logged in user
-      # When I visit '/dashboard'
+
       visit '/dashboard'
-      # Then I should see a list of all bookmarked segments under the Bookmarked Segments section
-      # And they should be organized by which tutorial they are a part of
-      # And the videos should be ordered by their position
-save_and_open_page
+      
       within(page.first('.tutorial_list')) do
         expect(page).to have_content(tutorial1.title)
         expect(page).to have_content(video11.title)
@@ -49,17 +45,9 @@ save_and_open_page
       within(page.all('.tutorial_list')[2]) do
         expect(page).to have_content(tutorial3.title)
         expect(page).to have_content(video32.title)
-        expect(page).to_not have_content(video11.title)
-        expect(page).to_not have_content(video21.title)
-        expect(page).to_not have_content(video31.title)
-      end
-
-      within(page.all('.tutorial_list')[3]) do
-        expect(page).to have_content(tutorial3.title)
         expect(page).to have_content(video31.title)
         expect(page).to_not have_content(video11.title)
         expect(page).to_not have_content(video21.title)
-        expect(page).to_not have_content(video32.title)
       end
     #end
   end
