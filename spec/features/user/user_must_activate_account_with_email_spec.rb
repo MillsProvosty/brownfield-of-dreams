@@ -1,7 +1,7 @@
 require 'rails_helper'
-require "rails_helper"
 
-RSpec.describe Notifications, :type => :mailer do
+RSpec.describe "Notifications" do
+  include ActionMailer::TestHelper
   describe "As a non-activated user" do
     before :each do
       email = 'jimbob@aol.com'
@@ -22,23 +22,6 @@ RSpec.describe Notifications, :type => :mailer do
     it "I receive an email" do
       assert_emails 1 do
         click_on 'Create Account'
-      end
-    end
-
-    describe "When I check my email for the registration email" do
-      before :each do
-        click_on 'Create Account'
-        let(:mail) { Notifications.register }
-      end
-
-      it "renders the headers" do
-        expect(mail.subject).to eq("Signup")
-        expect(mail.to).to eq([email])
-        expect(mail.from).to eq(["fromTBD@example.com"])
-      end
-
-      it "renders the body" do
-        expect(mail.body.encoded).to match("Visit here to activate your account.")
       end
     end
 
