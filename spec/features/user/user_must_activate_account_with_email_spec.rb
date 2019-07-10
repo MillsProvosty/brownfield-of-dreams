@@ -28,7 +28,7 @@ RSpec.describe "Notifications" do
     describe "when I click the link" do
       before :each do
         click_on 'Create Account'
-        visit activation_path
+        visit activate_user_path(User.last.id)
       end
 
       it "I should be taken to an activation page" do
