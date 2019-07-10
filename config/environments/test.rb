@@ -45,4 +45,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  # Mailer will user local host to set urls in test environment
+  config.action_mailer.default_url_options = { :host => 'localhost' }
 end

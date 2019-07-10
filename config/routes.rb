@@ -43,6 +43,8 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create update edit]
 
+  post '/user/:user_id/activate', to: 'activation#create', as: :activate_user
+
   resources :tutorials, only: %i[show index] do
     resources :videos, only: %i[show index]
   end
