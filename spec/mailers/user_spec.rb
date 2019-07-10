@@ -1,10 +1,10 @@
 require "rails_helper"
 
-RSpec.describe ActivationMailer, type: :mailer do
+RSpec.describe UserMailer, type: :mailer do
   describe "activation email after registration" do
     before :each do
       @user = create(:user)
-      @mail = ActivationMailer.register(@user)
+      @mail = UserMailer.register(@user)
     end
 
     it "renders the headers" do

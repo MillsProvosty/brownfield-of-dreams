@@ -1,6 +1,6 @@
-class ActivationMailer < ApplicationMailer
+class UserMailer < ApplicationMailer
 
-  def register(user)
+  def activation_email(user)
     @user = user
     mail(to: user.email, subject: "Activate Your Account")
   end
