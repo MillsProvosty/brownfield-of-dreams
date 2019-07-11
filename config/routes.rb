@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   get '/user/:user_id/activate', to: 'activation#create', as: :activate_user
 
   get '/invite', to: 'invites#new', as: :new_invite
+  post '/invite', to: 'invites#create', as: :invites
 
   resources :tutorials, only: %i[show index] do
     resources :videos, only: %i[show index]
