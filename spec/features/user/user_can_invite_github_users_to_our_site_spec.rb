@@ -23,6 +23,7 @@ describe 'As a registered user on my dashboard page' do
       expect(page).to have_content('Successfully sent invite!')
     # end
   end
+end
 
 # Background: We want to be able to enter a user's Github handle and send them an email invite to our app. You'll use the Github API to retrieve the email address of the invitee.
 # Or I should see a message that says "The Github user you selected doesn't have an email address associated with their account."

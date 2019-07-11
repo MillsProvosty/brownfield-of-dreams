@@ -5,6 +5,7 @@
   <% unless current_github_user? %>
     <%= link_to "Connect to Github", "/auth/github", class: "btn btn-primary mb1 bg-teal" %>
   <% end %>
+  <%= link_to "Send an Invite", new_invite_path, class: "btn btn-primary mb1 bg-teal" %>
   <h3>Account Details</h3>
   <ul>
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
