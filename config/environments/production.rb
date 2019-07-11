@@ -98,6 +98,17 @@ Rails.application.configure do
 
   # Mailer will use heroku site in production
   config.action_mailer.default_url_options = { :host => 'https://brownfield-of-dreams-mpac.herokuapp.com' }
+
+  # sendgrid production
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { address: 'brownfield-of-dreams-mpac.herokuapp.com' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    :user_name => 'api_key',
+    :password => ENV['SENDGRID_API_KEY'],
+    :domain => 'brownfield-of-dreams-mpac.herokuapp.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 end
