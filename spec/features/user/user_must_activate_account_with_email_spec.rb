@@ -18,12 +18,12 @@ RSpec.describe "Notifications" do
       fill_in 'user[password]', with: password
       fill_in 'user[password_confirmation]', with: password
     end
-
-    it "I receive an email" do
-      assert_emails 1 do
-        click_on 'Create Account'
-      end
-    end
+    # 
+    # it "I receive an email" do
+    #   assert_emails 1 do
+    #     click_on 'Create Account'
+    #   end
+    # end
 
     describe "when I click the link" do
       before :each do
