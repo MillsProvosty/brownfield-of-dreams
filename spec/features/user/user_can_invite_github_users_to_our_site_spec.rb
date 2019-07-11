@@ -16,7 +16,7 @@ describe 'As a registered user on my dashboard page' do
 
       expect(current_path).to eq('/invite')
       
-      fill_in 'some field', with: 'kylecornelissen'
+      fill_in :github_handle, with: 'kylecornelissen'
       click_button 'Send Invite'
 
       expect(current_path).to eq('/dashboard')
