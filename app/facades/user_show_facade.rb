@@ -31,7 +31,7 @@ class UserShowFacade
   end
 
   def bookmarked_tutorials
-    Tutorial.bookmarked_tutorials_for_user(@user_id)
+    Tutorial.bookmarked_tutorials_for_user(@user.id)
   end
 
   private

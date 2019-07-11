@@ -14,6 +14,7 @@ describe 'As a user on my dashboard page' do
       video21 = create(:video, tutorial_id: tutorial2.id)
       video31 = create(:video, tutorial_id: tutorial3.id, position: 2)
       video32 = create(:video, tutorial_id: tutorial3.id, position: 1)
+      create(:video, tutorial_id: tutorial3.id, position: 3)
 
       user_video11 = create(:user_video, user: user, video: video11)
       user_video21 = create(:user_video, user: user, video: video21)
@@ -23,7 +24,7 @@ describe 'As a user on my dashboard page' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit '/dashboard'
-
+save_and_open_page
       within(page.first('.tutorial_list')) do
         expect(page).to have_link(tutorial1.title)
         expect(page).to have_link(video11.title)
