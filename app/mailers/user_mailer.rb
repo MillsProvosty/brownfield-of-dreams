@@ -4,9 +4,9 @@ class UserMailer < ApplicationMailer
     mail(to: user.email, subject: 'Activate Your Account')
   end
 
-  def invite_email(inviter, invitee)
-    @inviter = inviter
-    @invitee = invitee
-    mail(to: @invitee.email, subject: 'Join Brownfield of Dreams!')
+  def invite_email(inviter_name, invitee_name, invitee_email)
+    @inviter_name = inviter_name
+    @invitee_name = invitee_name
+    mail(to: invitee_email, subject: 'Join Brownfield of Dreams!')
   end
 end

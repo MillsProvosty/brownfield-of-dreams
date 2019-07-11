@@ -20,21 +20,20 @@ RSpec.describe UserMailer, type: :mailer do
 
   describe "invite email to a github user" do
     before :each do
-      inviter_attr = { full_name: 'Alexandra Chakeres' }
-      invitee_attr = { full_name: 'Kyle Cornelissen', email: 'kyle@gmail.com' }
-      @inviter = GithubUser.new(inviter_attr)
-      @invitee = GithubUser.new(invitee_attr)
-      @mail = UserMailer.invite_email(@inviter, @invitee)
+      @inviter_name = "Mills Provosty"
+      @invitee_name = "Alexandra Chakeres"
+      @invitee_email = "test@example.com"
+      @mail = UserMailer.invite_email(@inviter_name, @invitee_name, @invitee_email)
     end
 
     it "renders the headers" do
       expect(@mail.subject).to eq("Join Brownfield of Dreams!")
-      expect(@mail.to).to eq([@invitee.email])
+      expect(@mail.to).to eq([@invitee_email])
       expect(@mail.from).to eq(["no_reply@brownfieldofdreams.com"])
     end
 
     it "renders the body" do
-      expect(@mail.body.encoded).to match("Hello #{@invitee.full_name},\n#{@inviter.full_name} has invited you to join Brownfield of Dreams. You can create an account here.")
+      expect(@mail.body.encoded).to match("Hello #{@invitee_name},\n#{@inviter_name} has invited you to join Brownfield of Dreams. You can create an account here.")
     end
   end
 end
