@@ -4,13 +4,13 @@ RSpec.describe UserMailer, type: :mailer do
   describe "activation email after registration" do
     before :each do
       @user = create(:user)
-      @mail = UserMailer.register(@user)
+      @mail = UserMailer.activation_email(@user)
     end
 
     it "renders the headers" do
       expect(@mail.subject).to eq("Activate Your Account")
       expect(@mail.to).to eq([@user.email])
-      expect(@mail.from).to eq(["fromTBD@example.com"])
+      expect(@mail.from).to eq(["no_reply@brownfieldofdreams.com"])
     end
 
     it "renders the body" do

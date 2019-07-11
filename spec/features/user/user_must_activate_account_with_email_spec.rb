@@ -26,12 +26,16 @@ RSpec.describe "Notifications" do
       end
 
       it "I should be taken to an activation page" do
-        expect(page).to have_content("Thank you! Your account is now activated.")
+        VCR.use_cassette('activation_page', record: :new_episodes) do
+          expect(page).to have_content("Thank you! Your account is now activated.")
+        end
       end
 
       it "when I visit dashboard, I should see status active" do
-        visit dashboard_path
-        expect(page).to have_content("Status: Active")
+        VCR.use_cassette('dashboard_after_activation', record: :new_episodes) do
+          visit dashboard_path
+          expect(page).to have_content("Status: Active")
+        end
       end
     end
   end
