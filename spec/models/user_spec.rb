@@ -61,6 +61,14 @@ RSpec.describe User, type: :model do
     end
   end
 
+  it '.active_or_inactive' do
+    active_user = create(:user, active: true)
+    inactive_user = create(:user, active: false)
+
+    expect(active_user.active_or_inactive).to eq("Active")
+    expect(inactive_user.active_or_inactive).to eq("Inactive")
+  end
+
   describe '.add_friend' do
     it 'adds a friend if they are a user and not already a friend' do
       current_user = create(:user_with_github)
