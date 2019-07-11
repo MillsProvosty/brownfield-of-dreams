@@ -24,7 +24,7 @@ describe 'As a user on my dashboard page' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit '/dashboard'
-save_and_open_page
+      
       within(page.first('.tutorial_list')) do
         expect(page).to have_link(tutorial1.title)
         expect(page).to have_link(video11.title)
