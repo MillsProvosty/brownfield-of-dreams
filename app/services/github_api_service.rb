@@ -20,7 +20,7 @@ class GithubApiService
   private
 
   def conn
-    Faraday.new(url: 'https://api.github.com') do |f|
+    @conn ||= Faraday.new(url: 'https://api.github.com') do |f|
       f.adapter Faraday.default_adapter
     end
   end
