@@ -17,6 +17,10 @@ class GithubApiService
     fetch_data('/user/following')
   end
 
+  def user_attributes(github_handle)
+    fetch_data("/users/#{github_handle}")
+  end
+
   private
 
   def conn
