@@ -8,7 +8,7 @@ describe 'As a registered user on my dashboard page' do
       WebMock.allow_net_connect!
       VCR.turn_off!
 
-      user = create(:user)
+      user = create(:user_with_github)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit '/dashboard'
@@ -16,8 +16,8 @@ describe 'As a registered user on my dashboard page' do
 
       expect(current_path).to eq('/invite')
       
-      fill_in :github_handle, with: 'kylecornelissen'
-      expect { click_button 'Send Invite' }.to change { ActionMailer::Base.deliveries.count }.by(1)
+      fill_in :github_handle, with: 'chakeresa'
+      expect { click_button 'Send Invite'; sleep 1 }.to change { ActionMailer::Base.deliveries.count }.by(1)
 
       expect(current_path).to eq('/dashboard')
       expect(page).to have_content('Successfully sent invite!')

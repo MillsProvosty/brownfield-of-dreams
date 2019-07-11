@@ -11,6 +11,7 @@ FactoryBot.define do
 
   factory :user_with_github, parent: :user do
     github_token { ENV['GITHUB_API_KEY'] }
+    github_handle { 'MillsProvosty' }
   end
 
   factory :admin, parent: :user do
