@@ -17,7 +17,7 @@ describe 'As a registered user on my dashboard page' do
       expect(current_path).to eq('/invite')
       
       fill_in :github_handle, with: 'kylecornelissen'
-      click_button 'Send Invite'
+      expect { click_button 'Send Invite' }.to change { ActionMailer::Base.deliveries.count }.by(1)
 
       expect(current_path).to eq('/dashboard')
       expect(page).to have_content('Successfully sent invite!')

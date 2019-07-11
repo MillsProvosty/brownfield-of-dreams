@@ -22,8 +22,8 @@ RSpec.describe UserMailer, type: :mailer do
     before :each do
       inviter_attr = { full_name: 'Alexandra Chakeres' }
       invitee_attr = { full_name: 'Kyle Cornelissen', email: 'kyle@gmail.com' }
-      @inviter = GitHubUser.new(inviter_attr)
-      @invitee = GitHubUser.new(invitee_attr)
+      @inviter = GithubUser.new(inviter_attr)
+      @invitee = GithubUser.new(invitee_attr)
       @mail = UserMailer.invite_email(@inviter, @invitee)
     end
 
