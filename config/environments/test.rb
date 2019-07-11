@@ -49,5 +49,5 @@ Rails.application.configure do
   # Mailer will use local host to set urls in test environment
   config.action_mailer.default_url_options = { :host => 'localhost' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }
+  config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
 end
