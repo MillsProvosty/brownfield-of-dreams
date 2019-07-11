@@ -95,4 +95,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Mailer will use heroku site in production
+  config.action_mailer.default_url_options = { :host => 'https://brownfield-of-dreams-mpac.herokuapp.com' }
 end

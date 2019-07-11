@@ -30,13 +30,13 @@ class UserShowFacade
     @user.reload.friends
   end
 
+  def bookmarked_tutorials
+    Tutorial.bookmarked_tutorials_for_user(@user_id)
+  end
+
   private
 
   def github_service
     GithubApiService.new(@user.github_token)
-  end
-
-  def bookmarked_tutorials
-    Tutorial.bookmarked_tutorials_for_user(@user_id)
   end
 end
