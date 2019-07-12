@@ -35,6 +35,21 @@ describe 'As a registered user (authorized with github) on my dashboard page' do
       expect(page).to have_content("The Github user you selected doesn't have an email address associated with their account.")
     end
   end
+  
+  it 'I see a message if I enter an invalid github handle' do
+    VCR.use_cassette('invite_invalid_github_handle', record: :new_episodes) do
+      visit '/dashboard'
+      click_link 'Send an Invite'
+
+      invitee_handle = 'MillsProvosty111'
+      
+      fill_in :github_handle, with: invitee_handle
+      expect { click_button 'Send Invite'; sleep 1 }.to change { ActionMailer::Base.deliveries.count }.by(0)
+      
+      expect(current_path).to eq('/dashboard')
+      expect(page).to have_content("Failed to find the Github user with handle #{invitee_handle}")
+    end
+  end
 end
 
 describe 'As a registered user (not authorized with github) on my dashboard page' do
