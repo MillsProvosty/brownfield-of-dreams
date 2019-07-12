@@ -4,8 +4,8 @@ require 'rails_helper'
 
 describe GithubApiService do
   before(:each) do
-    user = create(:user_with_github)
-    @service = GithubApiService.new(user.id)
+    github_token = ENV["GITHUB_API_KEY"]
+    @service = GithubApiService.new(github_token)
   end
 
   it 'exists' do
@@ -14,11 +14,12 @@ describe GithubApiService do
 
   it '#user_repos' do
     VCR.use_cassette('github_api_user_repos', record: :new_episodes) do
-      repos = @service.user_repos
+      limit = 12
+      repos = @service.user_repos(limit)
       expect(repos).to be_an(Array)
       expect(repos.first).to have_key(:name)
       expect(repos.first).to have_key(:url)
-      expect(repos.count).to eq(30)
+      expect(repos.count).to eq(limit)
     end
   end
 
@@ -39,6 +40,15 @@ describe GithubApiService do
       expect(users_followed.first).to have_key(:login)
       expect(users_followed.first).to have_key(:url)
       expect(users_followed.count).to eq(6)
+    end
+  end
+
+  it '#user_attributes' do
+    VCR.use_cassette('github_api_user_attributes', record: :new_episodes) do
+      user_attributes = @service.user_attributes('chakeresa')
+      expect(user_attributes).to be_a(Hash)
+      expect(user_attributes).to have_key(:name)
+      expect(user_attributes).to have_key(:email)
     end
   end
 end

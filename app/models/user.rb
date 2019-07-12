@@ -34,6 +34,14 @@ class User < ApplicationRecord
     end
   end
 
+  def active_or_inactive
+    if active
+      "Active"
+    else
+      "Inactive"
+    end
+  end
+
   private
 
   def user_with_github_handle(github_handle)

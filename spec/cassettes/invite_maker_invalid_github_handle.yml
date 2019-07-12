@@ -1,0 +1,143 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/users/MillsProvosty?access_token=<GITHUB_API_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 12 Jul 2019 22:16:51 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - GitHub.com
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4995'
+      X-Ratelimit-Reset:
+      - '1562973407'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      Etag:
+      - W/"a5dc1860162fafc5c0eaf8d987757d5f"
+      Last-Modified:
+      - Thu, 11 Jul 2019 23:35:46 GMT
+      X-Oauth-Scopes:
+      - ''
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - E901:3CA5:130625:1BF310:5D2906D3
+    body:
+      encoding: ASCII-8BIT
+      string: '{"login":"MillsProvosty","id":45856797,"node_id":"MDQ6VXNlcjQ1ODU2Nzk3","avatar_url":"https://avatars3.githubusercontent.com/u/45856797?v=4","gravatar_id":"","url":"https://api.github.com/users/MillsProvosty","html_url":"https://github.com/MillsProvosty","followers_url":"https://api.github.com/users/MillsProvosty/followers","following_url":"https://api.github.com/users/MillsProvosty/following{/other_user}","gists_url":"https://api.github.com/users/MillsProvosty/gists{/gist_id}","starred_url":"https://api.github.com/users/MillsProvosty/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/MillsProvosty/subscriptions","organizations_url":"https://api.github.com/users/MillsProvosty/orgs","repos_url":"https://api.github.com/users/MillsProvosty/repos","events_url":"https://api.github.com/users/MillsProvosty/events{/privacy}","received_events_url":"https://api.github.com/users/MillsProvosty/received_events","type":"User","site_admin":false,"name":"Mills
+        Provosty","company":null,"blog":"","location":"Denver, Co","email":null,"hireable":true,"bio":null,"public_repos":67,"public_gists":16,"followers":7,"following":11,"created_at":"2018-12-13T17:49:09Z","updated_at":"2019-07-11T23:35:46Z"}'
+    http_version: 
+  recorded_at: Fri, 12 Jul 2019 22:16:32 GMT
+- request:
+    method: get
+    uri: https://api.github.com/users/MillsProvosty1111?access_token=<GITHUB_API_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Fri, 12 Jul 2019 22:16:51 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - GitHub.com
+      Status:
+      - 404 Not Found
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4994'
+      X-Ratelimit-Reset:
+      - '1562973407'
+      X-Oauth-Scopes:
+      - ''
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - E906:4B07:585E7E:82D309:5D2906D3
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not Found","documentation_url":"https://developer.github.com/v3/users/#get-a-single-user"}'
+    http_version: 
+  recorded_at: Fri, 12 Jul 2019 22:16:32 GMT
+recorded_with: VCR 5.0.0

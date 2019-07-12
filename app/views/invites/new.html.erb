@@ -1,0 +1,5 @@
+<%= form_tag(invites_path) do %>
+  <%= label_tag(:github_handle, "GitHub Handle") %>
+  <%= text_field_tag(:github_handle) %>
+  <%= submit_tag 'Send Invite' %>
+<% end %>
