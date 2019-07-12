@@ -65,8 +65,8 @@ RSpec.describe User, type: :model do
     active_user = create(:user, active: true)
     inactive_user = create(:user, active: false)
 
-    expect(active_user.active_or_inactive).to eq("Active")
-    expect(inactive_user.active_or_inactive).to eq("Inactive")
+    expect(active_user.active_or_inactive).to eq('Active')
+    expect(inactive_user.active_or_inactive).to eq('Inactive')
   end
 
   describe '.add_friend' do

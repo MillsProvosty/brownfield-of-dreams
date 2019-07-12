@@ -36,9 +36,9 @@ class User < ApplicationRecord
 
   def active_or_inactive
     if active
-      "Active"
+      'Active'
     else
-      "Inactive"
+      'Inactive'
     end
   end
 

@@ -9,7 +9,7 @@ class Tutorial < ApplicationRecord
 
   def self.bookmarked_tutorials_for_user(user_id)
     includes(videos: [:user_videos])
-      .where(user_videos: {user_id: user_id})
+      .where(user_videos: { user_id: user_id })
       .order(:tutorial_id, :position)
   end
 end
