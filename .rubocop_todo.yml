@@ -10,12 +10,6 @@
 Metrics/AbcSize:
   Max: 18
 
-# Offense count: 22
-# Configuration parameters: CountComments, ExcludedMethods.
-# ExcludedMethods: refine
-Metrics/BlockLength:
-  Max: 77
-
 # Offense count: 3
 # Configuration parameters: CountComments, ExcludedMethods.
 Metrics/MethodLength:
@@ -26,15 +20,6 @@ Metrics/MethodLength:
 Style/GlobalVars:
   Exclude:
     - 'node_modules/node-sass/src/libsass/extconf.rb'
-
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: AllowAsExpressionSeparator.
-Style/Semicolon:
-  Exclude:
-    - 'spec/features/user/user_can_invite_github_users_to_our_site_spec.rb'
-    - 'spec/features/vistors/visitor_can_register_spec.rb'
-    - 'spec/models/invite_maker_spec.rb'
 
 # Offense count: 86
 # Cop supports --auto-correct.

@@ -19,7 +19,11 @@ RSpec.describe InviteMaker, type: :model do
         invite_maker = InviteMaker.new(@current_user, 'chakeresa')
         expected_flash = { success: 'Successfully sent invite!' }
 
-        expect { invite_maker.setup_email; sleep 1 }.to change { ActionMailer::Base.deliveries.count }.by(1)
+        expect do
+          invite_maker.setup_email
+          sleep 1
+        end.to change { ActionMailer::Base.deliveries.count }.by(1)
+
         expect(invite_maker.flash).to eq(expected_flash)
       end
     end
@@ -29,7 +33,11 @@ RSpec.describe InviteMaker, type: :model do
         invite_maker = InviteMaker.new(@current_user, 'MillsProvosty')
         expected_flash = { danger: "The Github user you selected doesn't have an email address associated with their account." }
 
-        expect { invite_maker.setup_email; sleep 1 }.to change { ActionMailer::Base.deliveries.count }.by(0)
+        expect do
+          invite_maker.setup_email
+          sleep 1
+        end.to change { ActionMailer::Base.deliveries.count }.by(0)
+
         expect(invite_maker.flash).to eq(expected_flash)
       end
     end
@@ -40,7 +48,11 @@ RSpec.describe InviteMaker, type: :model do
         invite_maker = InviteMaker.new(@current_user, bad_handle)
         expected_flash = { danger: "Failed to find the Github user with handle #{bad_handle}" }
 
-        expect { invite_maker.setup_email; sleep 1 }.to change { ActionMailer::Base.deliveries.count }.by(0)
+        expect do
+          invite_maker.setup_email
+          sleep 1
+        end.to change { ActionMailer::Base.deliveries.count }.by(0)
+        
         expect(invite_maker.flash).to eq(expected_flash)
       end
     end

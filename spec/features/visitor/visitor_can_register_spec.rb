@@ -26,7 +26,10 @@ describe 'visitor can create an account', :js do
       fill_in 'user[password]', with: password
       fill_in 'user[password_confirmation]', with: password
 
-      expect { click_on 'Create Account'; sleep 1 }.to change { ActionMailer::Base.deliveries.count }.by(1)
+      expect do
+        click_on 'Create Account'
+        sleep 1
+      end.to change { ActionMailer::Base.deliveries.count }.by(1)
 
       expect(current_path).to eq(dashboard_path)
 
