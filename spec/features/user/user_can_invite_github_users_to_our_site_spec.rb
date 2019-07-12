@@ -4,10 +4,7 @@ require 'rails_helper'
 
 describe 'As a registered user on my dashboard page' do
   it 'I can invite a github user' do
-    # VCR.use_cassette('invite_github_user', record: :new_episodes) do
-      WebMock.allow_net_connect!
-      VCR.turn_off!
-
+    VCR.use_cassette('invite_github_user', record: :new_episodes) do
       user = create(:user_with_github)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -21,7 +18,7 @@ describe 'As a registered user on my dashboard page' do
 
       expect(current_path).to eq('/dashboard')
       expect(page).to have_content('Successfully sent invite!')
-    # end
+    end
   end
 end
 
