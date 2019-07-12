@@ -3,11 +3,13 @@
 require 'rails_helper'
 
 describe 'As a registered user on my dashboard page' do
-  it 'I can invite a github user' do
-    VCR.use_cassette('invite_github_user', record: :new_episodes) do
-      user = create(:user_with_github)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+  before(:each) do
+    user = create(:user_with_github)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+  end
 
+  it 'I can invite a github user with a public email' do
+    VCR.use_cassette('invite_github_user', record: :new_episodes) do
       visit '/dashboard'
       click_link 'Send an Invite'
 
@@ -20,7 +22,17 @@ describe 'As a registered user on my dashboard page' do
       expect(page).to have_content('Successfully sent invite!')
     end
   end
-end
 
-# Background: We want to be able to enter a user's Github handle and send them an email invite to our app. You'll use the Github API to retrieve the email address of the invitee.
-# Or I should see a message that says "The Github user you selected doesn't have an email address associated with their account."
+  it 'I cannot invite a github user with a private email' do
+    VCR.use_cassette('invite_private_github_user', record: :new_episodes) do
+      visit '/dashboard'
+      click_link 'Send an Invite'
+
+      fill_in :github_handle, with: 'kylecornelissen'
+      expect { click_button 'Send Invite'; sleep 1 }.to change { ActionMailer::Base.deliveries.count }.by(0)
+
+      expect(current_path).to eq('/dashboard')
+      expect(page).to have_content("The Github user you selected doesn't have an email address associated with their account.")
+    end
+  end
+end

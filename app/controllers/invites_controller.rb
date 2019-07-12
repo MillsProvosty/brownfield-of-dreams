@@ -7,10 +7,14 @@ class InvitesController < ApplicationController
     inviter_attributes = github_service.user_attributes(inviter_handle)
     invitee_attributes = github_service.user_attributes(invitee_handle)
     invitee_email = invitee_attributes[:email]
-    inviter_name = inviter_attributes[:name]
-    invitee_name = invitee_attributes[:name]
-    UserMailer.invite_email(inviter_name, invitee_name, invitee_email).deliver_later
-    flash[:success] = 'Successfully sent invite!'
+    if invitee_email
+      inviter_name = inviter_attributes[:name]
+      invitee_name = invitee_attributes[:name]
+      UserMailer.invite_email(inviter_name, invitee_name, invitee_email).deliver_later
+      flash[:success] = 'Successfully sent invite!'
+    else
+      flash[:danger] = "The Github user you selected doesn't have an email address associated with their account."
+    end
     redirect_to dashboard_path
   end
 
