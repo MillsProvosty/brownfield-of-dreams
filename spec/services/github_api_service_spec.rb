@@ -42,4 +42,13 @@ describe GithubApiService do
       expect(users_followed.count).to eq(6)
     end
   end
+
+  it '#user_attributes' do
+    VCR.use_cassette('github_api_user_attributes', record: :new_episodes) do
+      user_attributes = @service.user_attributes('chakeresa')
+      expect(user_attributes).to be_a(Hash)
+      expect(user_attributes).to have_key(:name)
+      expect(user_attributes).to have_key(:email)
+    end
+  end
 end
