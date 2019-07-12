@@ -10,7 +10,6 @@ RSpec.describe 'As a non-activated user' do
       first_name = 'Jim'
       last_name = 'Bob'
       password = 'password'
-      password_confirmation = 'password'
 
       visit new_user_path
 

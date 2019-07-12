@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InviteMaker
   attr_reader :flash
 
@@ -5,13 +7,14 @@ class InviteMaker
     @current_user = current_user
     @invitee_handle = invitee_handle
   end
-  
+
   def setup_email
     inviter_handle = @current_user.github_handle
     inviter_attr = github_service.user_attributes(inviter_handle)
     invitee_attr = github_service.user_attributes(@invitee_handle)
     return if api_errors?(invitee_attr)
     return if no_invitee_email?(invitee_attr)
+
     send_mailer(inviter_attr, invitee_attr)
   end
 
@@ -22,9 +25,9 @@ class InviteMaker
   end
 
   def api_errors?(invitee_attr)
-    if invitee_attr.has_key?(:message)
-      @flash = { danger: "Failed to find the Github user with handle #{@invitee_handle}" }
-    end
+    return false unless invitee_attr.key?(:message)
+
+    @flash = { danger: "Failed to find the Github user with handle #{@invitee_handle}" }
   end
 
   def no_invitee_email?(invitee_attr)
