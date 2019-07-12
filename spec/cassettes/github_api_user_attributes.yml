@@ -1,0 +1,80 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/users/chakeresa?access_token=<GITHUB_API_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 11 Jul 2019 23:59:11 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - GitHub.com
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4950'
+      X-Ratelimit-Reset:
+      - '1562890459'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      Etag:
+      - W/"cf041d49c113ecc7bac9882ecd61e228"
+      Last-Modified:
+      - Thu, 11 Jul 2019 23:25:54 GMT
+      X-Oauth-Scopes:
+      - ''
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - DA45:636C:2F8226:451690:5D27CD4E
+    body:
+      encoding: ASCII-8BIT
+      string: '{"login":"chakeresa","id":<GITHUB_UID>,"node_id":"MDQ6VXNlcjQ3MzA5ODYx","avatar_url":"https://avatars2.githubusercontent.com/u/<GITHUB_UID>?v=4","gravatar_id":"","url":"https://api.github.com/users/chakeresa","html_url":"https://github.com/chakeresa","followers_url":"https://api.github.com/users/chakeresa/followers","following_url":"https://api.github.com/users/chakeresa/following{/other_user}","gists_url":"https://api.github.com/users/chakeresa/gists{/gist_id}","starred_url":"https://api.github.com/users/chakeresa/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/chakeresa/subscriptions","organizations_url":"https://api.github.com/users/chakeresa/orgs","repos_url":"https://api.github.com/users/chakeresa/repos","events_url":"https://api.github.com/users/chakeresa/events{/privacy}","received_events_url":"https://api.github.com/users/chakeresa/received_events","type":"User","site_admin":false,"name":"Alexandra
+        Chakeres","company":null,"blog":"https://www.linkedin.com/in/alexandrachakeres/","location":"Denver,
+        CO","email":"alexchakeres@gmail.com","hireable":null,"bio":"Back End Engineering
+        student at Turing School of Software & Design","public_repos":45,"public_gists":3,"followers":4,"following":1,"created_at":"2019-02-04T02:41:16Z","updated_at":"2019-07-11T23:25:54Z"}'
+    http_version: 
+  recorded_at: Thu, 11 Jul 2019 23:58:53 GMT
+recorded_with: VCR 5.0.0

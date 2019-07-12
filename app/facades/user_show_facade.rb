@@ -37,6 +37,6 @@ class UserShowFacade
   private
 
   def github_service
-    GithubApiService.new(@user.github_token)
+    @github_service ||= GithubApiService.new(@user.github_token)
   end
 end
