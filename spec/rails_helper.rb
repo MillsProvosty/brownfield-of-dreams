@@ -5,6 +5,8 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 
+SimpleCov.start 'rails'
+
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'vcr'
@@ -36,8 +38,6 @@ Capybara.javascript_driver = :selenium_chrome
 Capybara.configure do |config|
   config.default_max_wait_time = 5
 end
-
-SimpleCov.start 'rails'
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
