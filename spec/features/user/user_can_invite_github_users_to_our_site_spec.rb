@@ -53,13 +53,11 @@ describe 'As a registered user (authorized with github) on my dashboard page' do
 end
 
 describe 'As a registered user (not authorized with github) on my dashboard page' do
-  before(:each) do
-    user = create(:user)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-  end
-
   it 'I cannot invite a github user' do
     VCR.use_cassette('no_invite_button_for_non_github_user', record: :new_episodes) do
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      
       visit '/dashboard'
 
       expect(page).to_not have_link('Send an Invite')
