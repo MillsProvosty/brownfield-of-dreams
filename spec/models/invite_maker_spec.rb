@@ -52,7 +52,7 @@ RSpec.describe InviteMaker, type: :model do
           invite_maker.setup_email
           sleep 1
         end.to change { ActionMailer::Base.deliveries.count }.by(0)
-        
+
         expect(invite_maker.flash).to eq(expected_flash)
       end
     end
