@@ -3,9 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Tutorial, type: :model do
-
-  describe "class methods" do
-    it ".bookmarked_tutorials_for_user" do
+  describe 'class methods' do
+    it '.bookmarked_tutorials_for_user' do
       user = create(:user)
       other_user = create(:user)
 

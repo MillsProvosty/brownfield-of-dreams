@@ -5,13 +5,14 @@ require 'rails_helper'
 describe 'visitor visits tutorial show page' do
   it 'sees a list of videos associated with that tutorial' do
     tutorial = create(:tutorial)
-    video_1, video_2 = create_list(:video, 2, tutorial: tutorial)
+    video1, video2 = create_list(:video, 2, tutorial: tutorial)
 
     visit "/tutorials/#{tutorial.id}"
 
-    within("#video-list") do
-      expect(page.all(".show-link").count).to eq(2)
-      expect(first(".show-link")).to have_content(video_1.title)
+    within('#video-list') do
+      expect(page.all('.show-link').count).to eq(2)
+      expect(first('.show-link')).to have_content(video1.title)
+      expect(page.all('.show-link')[1]).to have_content(video2.title)
     end
   end
 
@@ -20,7 +21,7 @@ describe 'visitor visits tutorial show page' do
 
     visit "/tutorials/#{tutorial.id}"
 
-    expect(page.all(".show-link").count).to eq(0)
-    expect(page).to have_content("This tutorial has no videos")
+    expect(page.all('.show-link').count).to eq(0)
+    expect(page).to have_content('This tutorial has no videos')
   end
 end

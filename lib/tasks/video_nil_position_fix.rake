@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 desc 'Override nil video positions'
 task video_nil_position_fix: :environment do
   Video.where(position: nil).each do |video|

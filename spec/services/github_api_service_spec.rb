@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe GithubApiService do
   before(:each) do
-    github_token = ENV["GITHUB_API_KEY"]
+    github_token = ENV['GITHUB_API_KEY']
     @service = GithubApiService.new(github_token)
   end
 

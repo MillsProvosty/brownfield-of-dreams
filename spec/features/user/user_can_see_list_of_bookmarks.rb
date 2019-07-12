@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'As a user on my dashboard page' do
   it 'I see a list of my bookmarked videos' do
-     VCR.use_cassette('see_ordered_bookmarks', record: :new_episodes) do
-
+    VCR.use_cassette('see_ordered_bookmarks', record: :new_episodes) do
       user = create(:user)
 
       tutorial1 = create(:tutorial)
@@ -24,7 +25,7 @@ describe 'As a user on my dashboard page' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit '/dashboard'
-      
+
       within(page.first('.tutorial_list')) do
         expect(page).to have_link(tutorial1.title)
         expect(page).to have_link(video11.title)

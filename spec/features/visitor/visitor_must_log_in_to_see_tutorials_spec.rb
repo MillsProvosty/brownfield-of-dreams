@@ -5,14 +5,11 @@ require 'rails_helper'
 describe 'visitor can only see public tutorials', :js do
   it 'unless they are logged in' do
     VCR.use_cassette('visitor_no_clasroom_tutorials', record: :new_episodes) do
+      tutorial1 = create(:tutorial, classroom: false, description: 'desc 1')
+      tutorial2 = create(:tutorial, classroom: true, description: 'desc 2')
 
-      tutorial1 = create(:tutorial, classroom: false)
-      tutorial2 = create(:tutorial, classroom: true)
-
-      video1 = create(:video, tutorial_id: tutorial1.id)
-      video2 = create(:video, tutorial_id: tutorial1.id)
-      video3 = create(:video, tutorial_id: tutorial2.id)
-      video4 = create(:video, tutorial_id: tutorial2.id)
+      create_list(:video, 2, tutorial: tutorial1)
+      create_list(:video, 2, tutorial: tutorial2)
 
       visit root_path
 

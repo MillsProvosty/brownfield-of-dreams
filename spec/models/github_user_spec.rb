@@ -23,7 +23,7 @@ RSpec.describe GithubUser, type: :model do
     it 'is true when user exists and not yet friends' do
       handle = 'kylecornelissen'
       github_user = GithubUser.new(login: handle, html_url: 'github profile URL')
-      corresponding_user = create(:user_with_github, github_handle: handle)
+      create(:user_with_github, github_handle: handle)
       current_user = create(:user_with_github)
       expect(github_user.can_be_friend_of?(current_user)).to eq(true)
     end

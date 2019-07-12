@@ -7,10 +7,8 @@ describe 'Tutorials API' do
     tutorial1 = create(:tutorial)
     tutorial2 = create(:tutorial)
 
-    video1 = create(:video, tutorial_id: tutorial1.id)
-    video2 = create(:video, tutorial_id: tutorial1.id)
-    video3 = create(:video, tutorial_id: tutorial2.id)
-    video4 = create(:video, tutorial_id: tutorial2.id)
+    video1, video2 = create_list(:video, 2, tutorial: tutorial1)
+    video3, video4 = create_list(:video, 2, tutorial: tutorial2)
 
     get '/api/v1/tutorials'
 
@@ -30,10 +28,8 @@ describe 'Tutorials API' do
     tutorial1 = create(:tutorial)
     tutorial2 = create(:tutorial)
 
-    video1 = create(:video, tutorial_id: tutorial1.id)
-    video2 = create(:video, tutorial_id: tutorial1.id)
-    video3 = create(:video, tutorial_id: tutorial2.id)
-    video4 = create(:video, tutorial_id: tutorial2.id)
+    video1, video2 = create_list(:video, 2, tutorial: tutorial1)
+    create_list(:video, 2, tutorial: tutorial2)
 
     get "/api/v1/tutorials/#{tutorial1.id}"
 
