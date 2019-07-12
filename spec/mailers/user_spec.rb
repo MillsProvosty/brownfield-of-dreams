@@ -33,7 +33,8 @@ RSpec.describe UserMailer, type: :mailer do
     end
 
     it "renders the body" do
-      expect(@mail.body.encoded).to match("Hello #{@invitee_name},\n#{@inviter_name} has invited you to join Brownfield of Dreams. You can create an account here.")
+      expect(@mail.body.encoded).to have_content("Hello #{@invitee_name},")
+      expect(@mail.body.encoded).to have_content("#{@inviter_name} has invited you to join Brownfield of Dreams. You can create an account here.")
     end
   end
 end
