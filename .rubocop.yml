@@ -54,3 +54,8 @@ Metrics/LineLength:
     - 'spec/features/user/user_can_invite_github_users_to_our_site_spec.rb'
     - 'app/models/invite_maker.rb'
     - 'app/controllers/admin/api/v1/tutorial_sequencer_controller.rb'
+    
+Metrics/MethodLength:
+  Exclude:
+    - 'spec/rails_helper.rb'
+
