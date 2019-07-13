@@ -12,7 +12,7 @@ describe 'As a user on my dashboard page' do
       visit '/dashboard'
 
       within('#github_followed_users') do
-        expect(page).to have_content('Followed Users')
+        expect(page).to have_content('Following')
         expect(page.all('.followed_user_list').count).to eq(6)
         within(first('.followed_user_list')) do
           expect(page).to have_link('earl-stephens')
