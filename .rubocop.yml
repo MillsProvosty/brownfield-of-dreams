@@ -45,3 +45,7 @@ Metrics/BlockLength:
     - 'spec/requests/api/v1/**'
     - 'spec/services/**'
     - 'lib/tasks/**'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'spec/rails_helper.rb'
