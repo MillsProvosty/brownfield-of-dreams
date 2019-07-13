@@ -16,7 +16,8 @@ RSpec.describe UserMailer, type: :mailer do
     end
 
     it 'renders the body' do
-      expect(@mail.body.encoded).to match('Visit here to activate your account.')
+      expect(@mail.body.encoded)
+      .to match('Visit here to activate your account.')
     end
   end
 
@@ -25,7 +26,8 @@ RSpec.describe UserMailer, type: :mailer do
       @inviter_name = 'Mills Provosty'
       @invitee_name = 'Alexandra Chakeres'
       @invitee_email = 'test@example.com'
-      @mail = UserMailer.invite_email(@inviter_name, @invitee_name, @invitee_email)
+      @mail = UserMailer
+      .invite_email(@inviter_name, @invitee_name, @invitee_email)
     end
 
     it 'renders the headers' do
@@ -36,7 +38,9 @@ RSpec.describe UserMailer, type: :mailer do
 
     it 'renders the body' do
       expect(@mail.body.encoded).to have_content("Hello #{@invitee_name},")
-      expect(@mail.body.encoded).to have_content("#{@inviter_name} has invited you to join Brownfield of Dreams. You can create an account here.")
+      expect(@mail.body.encoded)
+      .to have_content("#{@inviter_name} has invited you to join Brownfield" \
+        " of Dreams. You can create an account here.")
     end
   end
 end

@@ -45,3 +45,12 @@ Metrics/BlockLength:
     - 'spec/requests/api/v1/**'
     - 'spec/services/**'
     - 'lib/tasks/**'
+
+Metrics/LineLength:
+  Exclude:
+    - 'lib/tasks/youtube_seed.rake'
+    - 'spec/rails_helper.rb'
+    - 'spec/models/invite_maker_spec.rb'
+    - 'spec/features/user/user_can_invite_github_users_to_our_site_spec.rb'
+    - 'app/models/invite_maker.rb'
+    - 'app/controllers/admin/api/v1/tutorial_sequencer_controller.rb'

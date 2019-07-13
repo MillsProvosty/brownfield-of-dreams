@@ -8,7 +8,8 @@ describe 'As a user on my dashboard page' do
       mock_oauth
 
       user = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      allow_any_instance_of(ApplicationController)
+      .to receive(:current_user).and_return(user)
 
       visit '/dashboard'
 
