@@ -9,7 +9,7 @@ describe 'An admin user can add tags to tutorials' do
     create(:video, tutorial_id: tutorial.id)
 
     allow_any_instance_of(ApplicationController)
-    .to receive(:current_user).and_return(admin)
+      .to receive(:current_user).and_return(admin)
 
     visit '/admin/dashboard'
 

@@ -18,7 +18,7 @@ describe 'As a user on my dashboard page' do
       )
 
       allow_any_instance_of(ApplicationController)
-      .to receive(:current_user).and_return(user1)
+        .to receive(:current_user).and_return(user1)
 
       visit '/dashboard'
 
@@ -73,7 +73,7 @@ describe 'As a user on my dashboard page' do
       )
 
       allow_any_instance_of(ApplicationController)
-      .to receive(:current_user).and_return(user1)
+        .to receive(:current_user).and_return(user1)
 
       visit '/dashboard'
 
@@ -84,7 +84,7 @@ describe 'As a user on my dashboard page' do
       end
 
       expect(page)
-      .to have_content("#{user2.github_handle} is already your friend")
+        .to have_content("#{user2.github_handle} is already your friend")
     end
   end
 
@@ -98,7 +98,7 @@ describe 'As a user on my dashboard page' do
       )
 
       allow_any_instance_of(ApplicationController)
-      .to receive(:current_user).and_return(user1)
+        .to receive(:current_user).and_return(user1)
 
       visit '/dashboard'
 
@@ -109,7 +109,7 @@ describe 'As a user on my dashboard page' do
       end
 
       expect(page)
-      .to have_content("#{user2.github_handle} is not a registered user")
+        .to have_content("#{user2.github_handle} is not a registered user")
     end
   end
 end

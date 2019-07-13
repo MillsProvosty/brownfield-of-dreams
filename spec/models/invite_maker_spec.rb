@@ -6,9 +6,9 @@ RSpec.describe InviteMaker, type: :model do
   before(:each) do
     @current_user = double('current_user')
     allow(@current_user)
-    .to receive(:github_handle).and_return('kylecornelissen')
+      .to receive(:github_handle).and_return('kylecornelissen')
     allow(@current_user)
-    .to receive(:github_token).and_return(ENV['GITHUB_API_KEY'])
+      .to receive(:github_token).and_return(ENV['GITHUB_API_KEY'])
   end
 
   it 'exists' do

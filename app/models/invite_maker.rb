@@ -43,7 +43,7 @@ class InviteMaker
     inviter_name = inviter_attr[:name]
     invitee_name = invitee_attr[:name]
     UserMailer.invite_email(inviter_name, invitee_name, @invitee_email)
-    .deliver_later
+              .deliver_later
     @flash = { success: 'Successfully sent invite!' }
   end
 end

@@ -26,7 +26,7 @@ RSpec.describe 'As a non-activated user' do
     it 'I should be taken to an activation page' do
       VCR.use_cassette('activation_page', record: :new_episodes) do
         expect(page)
-        .to have_content('Thank you! Your account is now activated.')
+          .to have_content('Thank you! Your account is now activated.')
       end
     end
 

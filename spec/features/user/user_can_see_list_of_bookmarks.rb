@@ -23,7 +23,7 @@ describe 'As a user on my dashboard page' do
       user_video32 = create(:user_video, user: user, video: video32)
 
       allow_any_instance_of(ApplicationController)
-      .to receive(:current_user).and_return(user)
+        .to receive(:current_user).and_return(user)
 
       visit '/dashboard'
 

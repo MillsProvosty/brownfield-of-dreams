@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   def index
     @tutorials = if params[:tag]
                    filter_tutorials.tagged_with(params[:tag])
-                   .paginate(page: params[:page], per_page: 5)
+                                   .paginate(page: params[:page], per_page: 5)
                  else
                    filter_tutorials.paginate(page: params[:page], per_page: 5)
                  end
