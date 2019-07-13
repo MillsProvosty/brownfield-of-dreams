@@ -74,3 +74,5 @@ def mock_oauth
     }
   )
 end
+
+ActionMailer::Base.delivery_method = :test
