@@ -22,7 +22,8 @@ class GithubUser
 
   def already_friends?(current_user)
     friend = User.find_by(github_handle: @handle)
-    friendship = Friendship.find_by(user_id: current_user.id, friend_id: friend.id)
+    friendship = Friendship
+                 .find_by(user_id: current_user.id, friend_id: friend.id)
     friendship != nil
   end
 end

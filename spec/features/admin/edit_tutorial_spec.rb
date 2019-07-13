@@ -7,15 +7,16 @@ describe 'An Admin can edit a tutorial' do
   let(:admin)    { create(:admin) }
 
   scenario 'by adding a video', :js do
-    VCR.use_cassette('admin_edit_tutorial_by_adding_video', record: :new_episodes) do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    VCR.use_cassette('admin_edit_tut_by_adding_video', record: :new_episodes) do
+      allow_any_instance_of(ApplicationController)
+        .to receive(:current_user).and_return(admin)
 
       visit edit_admin_tutorial_path(tutorial)
 
       click_on 'Add Video'
 
       fill_in 'video[title]', with: 'How to tie your shoes.'
-      fill_in 'video[description]', with: 'Over, under, around and through, Meet Mr. Bunny Rabbit, pull and through.'
+      fill_in 'video[description]', with: 'Over, under etc.'
       fill_in 'video[video_id]', with: 'J7ikFUlkP_k'
       click_on 'Create Video'
 

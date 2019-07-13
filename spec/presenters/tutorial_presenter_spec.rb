@@ -37,7 +37,7 @@ describe TutorialFacade do
         expect(presenter.next_video).to eq(video2)
       end
 
-      it 'returns the last video if the current video is the last in the list' do
+      it 'returns last video if the current video is the last in the list' do
         tutorial = create(:tutorial)
         create(:video, tutorial: tutorial, position: 1)
         last_video = create(:video, tutorial: tutorial, position: 2)

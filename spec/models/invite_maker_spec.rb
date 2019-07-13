@@ -5,8 +5,10 @@ require 'rails_helper'
 RSpec.describe InviteMaker, type: :model do
   before(:each) do
     @current_user = double('current_user')
-    allow(@current_user).to receive(:github_handle).and_return('kylecornelissen')
-    allow(@current_user).to receive(:github_token).and_return(ENV['GITHUB_API_KEY'])
+    allow(@current_user)
+      .to receive(:github_handle).and_return('kylecornelissen')
+    allow(@current_user)
+      .to receive(:github_token).and_return(ENV['GITHUB_API_KEY'])
   end
 
   it 'exists' do
@@ -16,8 +18,12 @@ RSpec.describe InviteMaker, type: :model do
   end
 
   describe '#setup_email' do
-    it 'sends email when invitee_handle is a valid github handle and the user has a public email' do
-      VCR.use_cassette('invite_maker_valid_github_handle', record: :new_episodes) do
+    it 'sends email when invitee_handle is a valid github handle and the' \
+    ' user has a public email' do
+      VCR.use_cassette(
+        'invite_maker_valid_github_handle',
+        record: :new_episodes
+      ) do
         invite_maker = InviteMaker.new(@current_user, 'chakeresa')
         expected_flash = { success: 'Successfully sent invite!' }
 

@@ -7,7 +7,8 @@ describe 'As a user on my dashboard page' do
     VCR.use_cassette('user_followers', record: :new_episodes) do
       user = create(:user_with_github)
 
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      allow_any_instance_of(ApplicationController)
+        .to receive(:current_user).and_return(user)
 
       visit '/dashboard'
 
