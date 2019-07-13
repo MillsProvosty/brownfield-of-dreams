@@ -22,8 +22,6 @@ A visitor is able to see all of the content on the application but in order to b
 
 ## Local Setup
 
-First you'll need to setup an API key with YouTube and have it defined within `ENV['YOUTUBE_API_KEY']`. There will be one failing spec if you don't have this set up.
-
 Clone down the repo
 ```
 $ git clone
@@ -36,6 +34,8 @@ $ bundle install
 
 Delete `yarn.lock` file
 
+Delete 'BUNDLED WITH' and line below from Gemfile.lock
+
 Install node packages for stimulus
 ```
 $ brew install node
@@ -43,16 +43,22 @@ $ brew install yarn
 $ yarn add stimulus
 ```
 
+Run `bundle exec figaro install`
+  Populate application.yml with :
+  ```
+  YOUTUBE_API_KEY: <your youtube api key>
+  GITHUB_UID: <your github user id>
+  GITHUB_API_KEY: <your github api key>
+  GITHUB_CLIENT_ID: <your app's github client id>
+  GITHUB_CLIENT_SECRET: <your app's github client secret>
+  SENDGRID_API_KEY: <your sendgrid api key>
+  ```
+
 Set up the database
 ```
 $ bundle exec rake db:create
 $ bundle exec rake db:migrate
 $ bundle exec rake db:seed
-```
-
-Update Chrome driver
-```
-$ chromedriver-update 74.0.3729.6
 ```
 
 Run the test suite:
