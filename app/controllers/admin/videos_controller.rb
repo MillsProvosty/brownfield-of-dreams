@@ -14,8 +14,8 @@ class Admin::VideosController < Admin::BaseController
     begin
       tutorial = Tutorial.find(params[:tutorial_id])
       create_video(tutorial)
-    rescue StandardError 
-      # Sorry about this. We should get more specific 
+    rescue StandardError
+      # Sorry about this. We should get more specific
       # instead of swallowing all errors.
       flash[:error] = 'Unable to create video.'
     end
